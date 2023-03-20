@@ -1,5 +1,5 @@
 const BasicFooter = () => {
-	return <></>;
+	return <>푸터</>;
 };
 
 export default BasicFooter;
