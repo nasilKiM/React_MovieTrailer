@@ -1,6 +1,5 @@
 const TopRated = () => {
-    return <>:)</>;
-  };
-  
-  export default TopRated;
-  
+	return <>:)</>;
+};
+
+export default TopRated;

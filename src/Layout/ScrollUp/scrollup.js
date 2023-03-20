@@ -1,5 +1,5 @@
 const ScrollUpBtn = () => {
-  return <></>;
+	return <></>;
 };
 
 export default ScrollUpBtn;

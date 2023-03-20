@@ -4,14 +4,14 @@ import TopRated from './TopRated/toprated';
 import UpComing from './UpComing/upcoming';
 
 const HomePage = () => {
-  return (
-    <>
-      <MainTrailer />
-      <NowPlaying />
-      <TopRated />
-      <UpComing />
-    </>
-  );
+	return (
+		<>
+			<MainTrailer />
+			<NowPlaying />
+			<TopRated />
+			<UpComing />
+		</>
+	);
 };
 
 export default HomePage;

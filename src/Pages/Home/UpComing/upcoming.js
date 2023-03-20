@@ -1,5 +1,5 @@
 const UpComing = () => {
-  return <>:)</>;
+	return <>:)</>;
 };
 
 export default UpComing;

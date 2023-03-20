@@ -1,6 +1,5 @@
 const NowPlaying = () => {
-    return <>:)</>;
-  };
-  
-  export default NowPlaying;
-  
+	return <>:)</>;
+};
+
+export default NowPlaying;

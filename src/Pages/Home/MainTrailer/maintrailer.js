@@ -1,5 +1,5 @@
 const MainTrailer = () => {
-  return <>:)</>;
+	return <>:)</>;
 };
 
 export default MainTrailer;
