@@ -19,6 +19,6 @@ function App() {
 			</RecoilRoot>
 		</QueryClientProvider>
 	);
-}
+};
 
 export default App;
