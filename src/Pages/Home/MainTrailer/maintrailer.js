@@ -1,5 +1,11 @@
+import DetailInfoPage from '../components/detailInfo';
+
 const MainTrailer = () => {
-	return <>:)</>;
+	return (
+		<>
+			<DetailInfoPage />
+		</>
+	);
 };
 
 export default MainTrailer;
