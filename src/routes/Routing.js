@@ -1,8 +1,8 @@
 import LayOut from 'components/Layout';
 import SearchPage from 'Pages/Search';
+import { createBrowserRouter } from 'react-router-dom';
 import DetailPage from '../Pages/DetailPage';
 import HomePage from '../Pages/Home';
-const { createBrowserRouter } = require('react-router-dom');
 
 const router = createBrowserRouter([
 	{

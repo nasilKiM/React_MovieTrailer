@@ -1,10 +1,8 @@
-
 // import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexSpaceBetween } from 'styles/common';
 import SearchBar from './Search';
 const BasicHeader = () => {
-
 	// const navigate = Navigate();
 
 	return (
@@ -26,7 +24,6 @@ const BasicHeader = () => {
 };
 
 export default BasicHeader;
-
 
 const HeaderWrapper = styled.div`
 	width: 100%;

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { flexAlignCenter, flexSpaceBetween } from 'styles/common';
 
 const BasicFooter = () => {
-
 	return (
 		<S.FooterWrapper>
 			<S.FooterContainer>
@@ -46,7 +45,6 @@ const BasicFooter = () => {
 			<img src="asset/footerImg.png" />
 		</S.FooterWrapper>
 	);
-
 };
 
 export default BasicFooter;
