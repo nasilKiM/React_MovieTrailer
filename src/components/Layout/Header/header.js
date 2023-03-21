@@ -1,7 +1,8 @@
+
 // import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexSpaceBetween } from 'styles/common';
-
+import SearchBar from './Search';
 const BasicHeader = () => {
 	// const navigate = Navigate();
 
@@ -13,7 +14,7 @@ const BasicHeader = () => {
 				{/* <Navigate to="/" /> */}
 				<span>MOVIE 찾냥?!</span>
 			</S.HeaderLogo>
-			<input placeholder="Search 컴포넌트 자리"></input>
+			<SearchBar />
 			<S.HeaderMenu>
 				<span>상영</span>
 				<span>예정</span>
@@ -24,6 +25,7 @@ const BasicHeader = () => {
 };
 
 export default BasicHeader;
+
 
 const HeaderWrapper = styled.div`
 	width: 100%;
