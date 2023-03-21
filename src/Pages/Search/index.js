@@ -19,5 +19,5 @@ export default SearchPage;
 
 const Wrapper = styled.div`
 	border: 2px solid cornflowerblue;
-	margin: 0 20%;
+	margin: 0 15%;
 `;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import SearchBar from './search';
+import SearchBar from './Search';
 
 const BasicHeader = () => {
 	return (
