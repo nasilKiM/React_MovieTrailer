@@ -29,7 +29,13 @@ const MovieSlider = ({ dummy }) => {
 					{dummy.map((src, index) => {
 						return (
 							<SwiperSlide>
-								<img key={index} src={src} alt="" width={2400} height={500} />
+								<img
+									key={index}
+									src={`${IMG_BASE_URL}/${src.poster_path}`}
+									alt=""
+									width={500}
+									height={500}
+								/>
 							</SwiperSlide>
 						);
 					})}

@@ -3,12 +3,12 @@ import { RouterProvider } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import router from 'Routes/routing';
 import { ThemeProvider } from 'styled-components';
-import GlobalStyles from 'Styles/global';
-import { theme } from 'Styles/theme';
+import GlobalStyles from 'styles/global';
+import { theme } from 'styles/theme';
 
 function App() {
 	const queryClient = new QueryClient();
-	const a = 1;
+
 	return (
 		<QueryClientProvider client={queryClient}>
 			<RecoilRoot>

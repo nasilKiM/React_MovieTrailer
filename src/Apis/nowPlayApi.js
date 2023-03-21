@@ -1,6 +1,6 @@
 import { Axios } from './@core';
 
-const PATH = 'now_playing';
+const PATH = '/movie/now_playing';
 
 const NowPlayApi = {
 	getNowPlay(params) {
