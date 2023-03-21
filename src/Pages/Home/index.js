@@ -1,12 +1,12 @@
-import MainTrailer from './MainTrailer/maintrailer';
+import MainTrailer from './components/MainTrailer/maintrailer';
 
 const HomePage = () => {
 	return (
 		<>
 			<MainTrailer />
-			{/* <NowPlaying />
+			<NowPlaying />
 			<TopRated />
-			<UpComing /> */}
+			<UpComing />
 		</>
 	);
 };
