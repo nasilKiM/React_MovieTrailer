@@ -6,9 +6,9 @@ import ScrollUpBtn from './ScrollUp/scrollup';
 const LayOut = () => {
 	return (
 		<>
-			<ScrollUpBtn />
 			<BasicHeader />
 			<Outlet />
+			<ScrollUpBtn />
 			<BasicFooter />
 		</>
 	);

@@ -23,3 +23,4 @@ const MainTrailer = () => {
 };
 
 export default MainTrailer;
+
