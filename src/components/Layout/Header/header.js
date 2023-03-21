@@ -1,28 +1,62 @@
+
+// import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { flexSpaceBetween } from 'styles/common';
 import SearchBar from './Search';
-
 const BasicHeader = () => {
-	return (
-		<S.Wrapper>
-			<>헤더</>
+	// const navigate = Navigate();
 
+	return (
+		<S.HeaderWrapper>
+			<S.HeaderLogo>
+				<img src="asset/mascot.png" />
+				{/* <div onClick={() => navigate('/')}>ICON</div> */}
+				{/* <Navigate to="/" /> */}
+				<span>MOVIE 찾냥?!</span>
+			</S.HeaderLogo>
 			<SearchBar />
-		</S.Wrapper>
+			<S.HeaderMenu>
+				<span>상영</span>
+				<span>예정</span>
+				<span>인기</span>
+			</S.HeaderMenu>
+		</S.HeaderWrapper>
 	);
 };
 
 export default BasicHeader;
 
-const Wrapper = styled.div`
+
+const HeaderWrapper = styled.div`
+	width: 100%;
+	border: 1px solid grey;
+	padding: 50px;
+	${flexSpaceBetween}
 	color: white;
 	background-color: black;
-	padding: 1%;
 `;
 
-const SearchBox = styled.div`
-	border: 3px solid lawngreen;
+const HeaderLogo = styled.div`
+	height: 50px;
+	width: 300px;
+	${flexSpaceBetween}
+	/* border: 1px dotted yellow; */
+	> img {
+		/* border: 1px dotted yellow; */
+		width: 150px;
+	}
+	> span {
+		font-size: 23px;
+	}
 `;
+
+const HeaderMenu = styled.div`
+	width: 25%;
+	${flexSpaceBetween}
+`;
+
 const S = {
-	Wrapper,
-	SearchBox,
+	HeaderWrapper,
+	HeaderLogo,
+	HeaderMenu,
 };
