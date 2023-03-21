@@ -1,5 +1,5 @@
 const BasicHeader = () => {
-	return <></>;
+	return <>HEADER</>;
 };
 
 export default BasicHeader;
