@@ -8,7 +8,7 @@ import { theme } from 'Styles/theme';
 
 function App() {
 	const queryClient = new QueryClient();
-
+	const a = 1;
 	return (
 		<QueryClientProvider client={queryClient}>
 			<RecoilRoot>
