@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { flexSpaceBetween } from 'styles/common';
 import SearchBar from './Search';
 const BasicHeader = () => {
+
 	// const navigate = Navigate();
 
 	return (
