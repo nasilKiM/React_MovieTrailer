@@ -1,5 +1,13 @@
+import ListHeader from 'components/ListHeader/listheader';
+import UpComingPreview from './UpComingPreview/upcomingpreview';
+
 const UpComing = () => {
-	return <>:)</>;
+	return (
+		<>
+			<ListHeader></ListHeader>
+			<UpComingPreview />
+		</>
+	);
 };
 
 export default UpComing;
