@@ -1,13 +1,16 @@
-import Layout from 'components/Layout';
-import DetailPage from 'pages/DetailPage';
-import HomePage from 'pages/Home';
 
+import LayOut from 'components/Layout';
+import SearchPage from 'Pages/Search';
+import DetailPage from '../Pages/DetailPage';
+import HomePage from '../Pages/Home';
+import MainTrailer from 'Pages/Home/MainTrailer/maintrailer';
 const { createBrowserRouter } = require('react-router-dom');
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Layout />,
+
+		element: <LayOut />,
 		children: [
 			{
 				path: '',
@@ -21,6 +24,11 @@ const router = createBrowserRouter([
 				path: '/detail/:id',
 				element: <DetailPage />,
 			},
+			{
+				path: '/search',
+				element: <SearchPage />,
+			},
+
 		],
 	},
 ]);
