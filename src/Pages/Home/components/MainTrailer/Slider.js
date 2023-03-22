@@ -31,7 +31,7 @@ const MovieSlider = ({ dummy }) => {
 							<SwiperSlide>
 								<img
 									key={index}
-									src={`${IMG_BASE_URL}/${src.poster_path}`}
+									src={`${IMG_BASE_URL}/${src.backdrop_path}`}
 									alt=""
 									width={500}
 									height={500}
