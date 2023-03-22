@@ -49,6 +49,7 @@ export default MovieSlider;
 
 const Wrapper = styled.div`
 	margin: 10px 20px;
+	width: 100%;
 	& > div {
 		overflow: hidden;
 	}
