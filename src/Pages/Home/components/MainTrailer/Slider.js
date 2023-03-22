@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-// import Slider from 'react-slick';
 
 import { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,31 +11,35 @@ import 'swiper/css/scrollbar';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
 
 const MovieSlider = ({ dummy }) => {
+	console.log(dummy);
+
 	return (
 		<S.Wrapper>
 			<S.SwiperWrapper>
 				<Swiper
-					slidesPerView={1.1}
+					slidesPerView={1.0}
 					centeredSlides={true}
-					spaceBetween={30}
+					spaceBetween={0}
 					grabCursor={true}
 					pagination={{
 						clickable: true,
 					}}
+					autoplay={{ delay: 1000 }}
 					modules={[Pagination]}
 					className="mySwiper"
 				>
 					{dummy.map((src, index) => {
 						return (
-							<SwiperSlide>
-								<img
-									key={index}
-									src={`${IMG_BASE_URL}/${src.backdrop_path}`}
-									alt=""
-									width={500}
-									height={500}
-								/>
-							</SwiperSlide>
+							<S.StyledSwiper>
+								<SwiperSlide>
+									<img
+										key={index}
+										src={`${IMG_BASE_URL}/${src.backdrop_path}`}
+										alt=""
+									/>
+									<p>{dummy.title}</p>
+								</SwiperSlide>
+							</S.StyledSwiper>
 						);
 					})}
 				</Swiper>
@@ -48,7 +51,6 @@ const MovieSlider = ({ dummy }) => {
 export default MovieSlider;
 
 const Wrapper = styled.div`
-	margin: 10px 20px;
 	width: 100%;
 	& > div {
 		overflow: hidden;
@@ -56,13 +58,16 @@ const Wrapper = styled.div`
 `;
 
 const SwiperWrapper = styled.div`
-	width: 70%;
-	margin: 0 auto;
+	width: 100%;
 	border: 1px solid black;
-	padding: 5px;
+`;
+
+const StyledSwiper = styled(Swiper)`
+	width: 100%;
 `;
 
 export const S = {
 	Wrapper,
 	SwiperWrapper,
+	StyledSwiper,
 };

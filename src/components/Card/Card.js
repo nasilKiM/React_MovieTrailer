@@ -10,13 +10,9 @@ function MovieCard({ title, poster_path, vote_average, overview }) {
 				<S.MoviePoster src={IMG_BASE_URL + poster_path} />
 				<S.MovieInfo>
 					<div>
+						<S.Rating>⭐{vote_average}</S.Rating>
 						<S.MovieTitle>{title}</S.MovieTitle>
-						<S.Rating>{vote_average}</S.Rating>
 					</div>
-					<S.MovieOverview>
-						<S.OverviewTitle>내용:</S.OverviewTitle>
-						<S.OverviewText>{overview}</S.OverviewText>
-					</S.MovieOverview>
 				</S.MovieInfo>
 			</S.Container>
 		</S.Wrapper>
@@ -27,7 +23,7 @@ export default MovieCard;
 
 const Wrapper = styled.div`
 	display: flex;
-	/* flex-wrap: wrap; */
+	flex-wrap: wrap;
 	justify-content: center;
 `;
 
@@ -38,10 +34,10 @@ const Container = styled.div`
 	border-radius: 5px;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
-	position: relative;
+	/* position: relative; */
 	@media (max-width: 768px) {
 		width: 200px;
-		height: 300px;
+		height: 350px;
 	}
 `;
 
@@ -50,7 +46,7 @@ const MoviePoster = styled.img`
 	height: 75%;
 	object-fit: fill;
 	@media (max-width: 768px) {
-		height: 50%;
+		height: 65%;
 	}
 `;
 
@@ -60,21 +56,24 @@ const MovieInfo = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	height: 40%;
-	background-color: #fff;
+	background-color: black;
 	@media (max-width: 768px) {
 		height: 50%;
 		padding: 5px;
 	}
 	& div {
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
+		padding: 5px;
 	}
 `;
 
 const MovieTitle = styled.h3`
+	width: 100%;
 	font-size: 20px;
-	font-weight: bolder;
-	margin: 0;
+	font-weight: lighter;
+	color: white;
+	margin-top: 10px;
 	margin-bottom: 10px;
 	@media (max-width: 768px) {
 		font-size: 16px;
@@ -82,37 +81,14 @@ const MovieTitle = styled.h3`
 `;
 
 const Rating = styled.span`
-	background-color: #f44336;
-	color: #fff;
-	padding: 5px;
+	/* background-color: #f44336; */
 	border-radius: 5px;
-	font-size: 16px;
-	font-weight: bold;
-	@media (max-width: 768px) {
-		font-size: 14px;
-	}
-`;
-
-const MovieOverview = styled.div`
-	padding: 10px;
-	@media (max-width: 768px) {
-		padding: 5px;
-	}
-`;
-
-const OverviewTitle = styled.h4`
 	width: 100%;
-	margin: 0;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 10px;
 	margin-bottom: 10px;
-	@media (max-width: 768px) {
-		margin-bottom: 5px;
-	}
-`;
-
-const OverviewText = styled.span`
-	margin: 0;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
 	@media (max-width: 768px) {
 		font-size: 14px;
 	}
@@ -125,7 +101,4 @@ const S = {
 	MovieInfo,
 	MovieTitle,
 	Rating,
-	MovieOverview,
-	OverviewTitle,
-	OverviewText,
 };

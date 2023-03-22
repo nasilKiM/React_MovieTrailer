@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { flexAlignCenter, flexSpaceBetween } from 'styles/common';
+import { flexAlignCenter, flexSpaceBetween } from 'Styles/common';
 
 const BasicFooter = () => {
 	return (

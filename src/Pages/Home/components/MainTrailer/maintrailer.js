@@ -1,4 +1,5 @@
 import MovieCard from 'components/Card/Card';
+// import styled from 'styled-components';
 import { dummy } from 'tempData';
 import MovieSlider from './Slider';
 
@@ -10,12 +11,14 @@ const MainTrailer = () => {
 			</div>
 			{dummy.results.map(item => {
 				return (
-					<MovieCard
-						title={item.title}
-						poster_path={item.poster_path}
-						vote_average={item.vote_average}
-						overview={item.overview}
-					/>
+					<div>
+						<MovieCard
+							title={item.title}
+							poster_path={item.poster_path}
+							vote_average={item.vote_average}
+							overview={item.overview}
+						/>
+					</div>
 				);
 			})}
 		</>
@@ -23,3 +26,13 @@ const MainTrailer = () => {
 };
 
 export default MainTrailer;
+
+// const Wrapper = styled.div`
+// 	background-color: aqua;
+// 	display: flex;
+// 	flex-wrap: wrap;
+// `;
+
+// const S = {
+// 	Wrapper,
+// };

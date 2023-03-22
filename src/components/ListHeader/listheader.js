@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { flexAlignCenter } from 'styles/common';
+import { flexAlignCenter } from 'Styles/common';
 
 const ListHeader = () => {
 	return (
