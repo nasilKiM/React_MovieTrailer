@@ -19,7 +19,7 @@ function SearchBar() {
 				name="word"
 			></InputBox>
 			<Button>
-				<img src="/images/search_icon.png" alt="icon"></img>
+				<img src="Assets/search_icon.png" alt="icon"></img>
 			</Button>
 		</Form>
 	);

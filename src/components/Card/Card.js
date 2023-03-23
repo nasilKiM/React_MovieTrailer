@@ -3,19 +3,19 @@ import styled from 'styled-components';
 
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
 
-function MovieCard({ title, poster_path, vote_average, overview }) {
+function MovieCard({ movie }) {
 	return (
 		<S.Wrapper>
 			<S.Container>
-				<S.MoviePoster src={IMG_BASE_URL + poster_path} />
+				<S.MoviePoster src={IMG_BASE_URL + movie.poster_path} />
 				<S.MovieInfo>
 					<div>
-						<S.MovieTitle>{title}</S.MovieTitle>
-						<S.Rating>{vote_average}</S.Rating>
+						<S.MovieTitle>{movie.title}</S.MovieTitle>
+						<S.Rating>{movie.vote_average}</S.Rating>
 					</div>
 					<S.MovieOverview>
 						<S.OverviewTitle>내용:</S.OverviewTitle>
-						<S.OverviewText>{overview}</S.OverviewText>
+						<S.OverviewText>{movie.overview}</S.OverviewText>
 					</S.MovieOverview>
 				</S.MovieInfo>
 			</S.Container>
@@ -28,7 +28,7 @@ export default MovieCard;
 const Wrapper = styled.div`
 	display: flex;
 	/* flex-wrap: wrap; */
-	justify-content: center;
+	/* justify-content: center; */
 `;
 
 const Container = styled.div`

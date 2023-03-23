@@ -1,9 +1,8 @@
-
 import LayOut from 'components/Layout';
-import SearchPage from 'Pages/Search';
-import DetailPage from '../Pages/DetailPage';
+import DetailPage from 'Pages/DetailPage/detailInfo';
+// import SearchPage from 'Pages/Search';
+// import DetailPage from '../Pages/DetailPage';
 import HomePage from '../Pages/Home';
-import MainTrailer from 'Pages/Home/MainTrailer/maintrailer';
 const { createBrowserRouter } = require('react-router-dom');
 
 const router = createBrowserRouter([
@@ -16,19 +15,18 @@ const router = createBrowserRouter([
 				path: '',
 				element: <HomePage />,
 			},
-			{
-				path: '/issues',
-				element: <HomePage />,
-			},
+			// {
+			// 	path: '/issues',
+			// 	element: <HomePage />,
+			// },
 			{
 				path: '/detail/:id',
 				element: <DetailPage />,
 			},
-			{
-				path: '/search',
-				element: <SearchPage />,
-			},
-
+			// {
+			// 	path: '/search',
+			// 	element: <SearchPage />,
+			// },
 		],
 	},
 ]);

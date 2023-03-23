@@ -1,17 +1,20 @@
-import MainTrailer from './components/MainTrailer/maintrailer';
-import NowPlaying from './components/NowPlaying/nowplaying';
+import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
+// import useGetNowPlay from 'hooks/queries/nowPlay/get-nowplay';
 import Preview from './components/Preview';
-import TopRated from './components/TopRated/toprated';
-import UpComing from './components/UpComing/upcoming';
 
 const HomePage = () => {
+	const nowPlaying = 'Now Playing';
+	const topRated = 'Top Rated';
+	const upComing = 'Up Coming';
+
+	// const {data} = useGetNowPlay(1);
+	// console.log('★★★★★★★★★★★★',data);
 	return (
 		<>
 			<Preview />
-			<MainTrailer />
-			<NowPlaying />
-			<TopRated />
-			<UpComing />
+			{/* <Preview txt={topRated} /> */}
+			{/* <Preview txt={upComing} /> */}
+			<ScrollUpBtn />
 		</>
 	);
 };

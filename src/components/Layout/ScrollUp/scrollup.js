@@ -1,13 +1,23 @@
 import styled from 'styled-components';
-import { flexAllCenter } from 'styles/common';
+// import { flexAllCenter } from 'Styles/common';
 
 const ScrollUpBtn = () => {
-	return <Icon>top</Icon>;
+	return (
+		<Div>
+			<Icon onClick={window.scrollTo(0, 0)}>top</Icon>
+		</Div>
+	);
 };
 
 export default ScrollUpBtn;
 
-const Icon = styled.div`
+const Div = styled.div`
+	width: 100%;
+	background-color: green;
+	position: relative;
+`;
+
+const Icon = styled.span`
 	width: 40px;
 	height: 40px;
 	border: 1px solid red;
@@ -15,9 +25,9 @@ const Icon = styled.div`
 	margin: 20px;
 	background-color: purple;
 	color: white;
-	${flexAllCenter}
-	position: sticky;
-	right: 30px;
+	display: flex;
+	position: absolute;
+	right: 50px;
 	/* left: 30px; */
 	bottom: 30px;
 `;
