@@ -30,14 +30,17 @@ const MovieSlider = ({ dummy }) => {
 				>
 					{dummy.map((src, index) => {
 						return (
-							<S.StyledSwiper>
+							<S.StyledSwiper key={index}>
 								<SwiperSlide>
-									<img
+									<SlideContent>
+										<Title>{src.title}</Title>
+										<Overview>{src.overview}</Overview>
+									</SlideContent>
+									<SlideImage
 										key={index}
 										src={`${IMG_BASE_URL}/${src.backdrop_path}`}
-										alt=""
+										alt={src.title}
 									/>
-									<p>{dummy.title}</p>
 								</SwiperSlide>
 							</S.StyledSwiper>
 						);
@@ -62,8 +65,36 @@ const SwiperWrapper = styled.div`
 	border: 1px solid black;
 `;
 
-const StyledSwiper = styled(Swiper)`
+const StyledSwiper = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+`;
+
+const SlideContent = styled.div`
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	text-align: center;
+	color: white;
+`;
+
+const Title = styled.h2`
+	font-size: 2rem;
+	margin-bottom: 0.5rem;
+`;
+
+const Overview = styled.p`
+	font-size: 1rem;
+`;
+
+const SlideImage = styled.img`
 	width: 100%;
+	height: auto;
+	object-fit: cover;
 `;
 
 export const S = {

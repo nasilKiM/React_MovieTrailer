@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import NowPlayApi from 'Apis/nowPlayApi';
-import { QUERY_KEY } from 'consts/query-key';
 
 const useGetNowPlay = params => {
 	const { data, error, status, isLoading } = useQuery(
-		[QUERY_KEY.NOW_PLAY],
+		['NOW_PLAY', params],
 		() => NowPlayApi.getNowPlay(params),
 		{
 			refetchOnWindowFocus: false,
