@@ -1,40 +1,22 @@
-import { useQuery } from '@tanstack/react-query';
-import MovieApi from 'Apis/movieApi';
+// import { useQuery } from '@tanstack/react-query';
+// import MovieApi from 'Apis/movieApi';
 import HoverMovieCard from 'components/Card/HoverCard';
 
 import styled from 'styled-components';
 import { flexSpaceBetween } from 'Styles/common';
 
-const Preview = () => {
-	// const temp = APIs.getNowPlaying(5).then(res => console.log(res.data));
-
-	const { data } = useQuery(
-		['get_now_playing_movies'],
-		() => MovieApi.getTopRated(5),
-		{
-			refetchOnWindowFocus: false,
-			retry: 1,
-			cacheTime: 1000 * 60 * 60,
-			onSuccess: res => {
-				console.log(res);
-			},
-			onError: () => {},
-		},
-	);
-
-	data && console.log('data', data);
-
+const Preview = ({ data, word }) => {
 	const top4 = data && data.data.results.splice(0, 4);
-	console.log('splice', top4);
 
 	return (
 		<S.Wrapper>
 			<S.Bar>
-				<span>Now Playing</span>
-				<button>more &gt;</button>
+				<span style={{ color: 'white', fontSize: '20px' }}>{word}</span>
+				<S.Button>more &gt;</S.Button>
 			</S.Bar>
 			<S.Cards>
-				{top4 && top4.map(item => <HoverMovieCard movie={item} />)}
+				{top4 &&
+					top4.map((item, idx) => <HoverMovieCard movie={item} key={idx} />)}
 			</S.Cards>
 		</S.Wrapper>
 	);
@@ -45,6 +27,15 @@ export default Preview;
 const Wrapper = styled.div`
 	width: 80%;
 	margin: 0 auto;
+	background-color: black;
+	@media (max-width: 768px) {
+		width: 80%;
+		height: 300px;
+	}
+	@media (max-width: 1024px) {
+		width: 80%;
+		height: 300px;
+	}
 `;
 
 const Bar = styled.div`
@@ -58,13 +49,23 @@ const Bar = styled.div`
 	}
 `;
 
+const Button = styled.button`
+	color: white;
+	background: none;
+	:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+`;
+
 const Cards = styled.div`
 	${flexSpaceBetween}
-	border: 1px solid yellow;
+	/* margin-bottom: 50px; */
+	padding-bottom: 50px;
 `;
 
 const S = {
 	Wrapper,
 	Bar,
+	Button,
 	Cards,
 };

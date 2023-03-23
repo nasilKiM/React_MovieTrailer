@@ -27,11 +27,14 @@ export default BasicHeader;
 
 const HeaderWrapper = styled.div`
 	width: 100%;
-	border: 1px solid grey;
-	padding: 50px;
+	/* min-width: 768px; */
+	padding: 50px 100px;
 	${flexSpaceBetween}
 	color: white;
 	background-color: black;
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
 `;
 
 const HeaderLogo = styled.div`
@@ -42,15 +45,24 @@ const HeaderLogo = styled.div`
 	> img {
 		/* border: 1px dotted yellow; */
 		width: 150px;
+		@media (max-width: 768px) {
+			width: 100px;
+		}
 	}
 	> span {
 		font-size: 23px;
+		@media (max-width: 768px) {
+			font-size: 20px;
+		}
 	}
 `;
 
 const HeaderMenu = styled.div`
-	width: 25%;
+	width: 300px;
 	${flexSpaceBetween}
+	@media (max-width: 768px) {
+		width: 250px;
+	}
 `;
 
 const S = {

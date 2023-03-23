@@ -1,23 +1,50 @@
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-// import { flexAllCenter } from 'Styles/common';
 
 const ScrollUpBtn = () => {
-	return (
-		<Div>
-			<Icon onClick={window.scrollTo(0, 0)}>top</Icon>
-		</Div>
-	);
+	const [scroll, setScroll] = useState(0);
+	const [showBtn, setShowBtn] = useState(false);
+
+	const onScroll = () => {
+		setScroll(window.scrollY);
+		if (scroll > 100) setShowBtn(true);
+		if (scroll < 100) setShowBtn(false);
+	};
+
+	const scrollTop = () => {
+		window.scroll({
+			top: 0,
+			behavior: 'smooth',
+		});
+		setScroll(0);
+		setShowBtn(false);
+	};
+
+	useEffect(() => {
+		onScroll();
+	}, [scroll]);
+
+	useEffect(() => {
+		const watch = () => {
+			window.addEventListener('scroll', onScroll);
+		};
+		watch();
+		return () => {
+			window.removeEventListener('scroll', onScroll);
+		};
+	}, []);
+
+	return <Div>{showBtn && <Icon onClick={scrollTop}>top</Icon>}</Div>;
 };
 
 export default ScrollUpBtn;
 
 const Div = styled.div`
 	width: 100%;
-	background-color: green;
 	position: relative;
 `;
 
-const Icon = styled.span`
+const Icon = styled.button`
 	width: 40px;
 	height: 40px;
 	border: 1px solid red;
@@ -26,8 +53,7 @@ const Icon = styled.span`
 	background-color: purple;
 	color: white;
 	display: flex;
-	position: absolute;
+	position: fixed;
 	right: 50px;
-	/* left: 30px; */
 	bottom: 30px;
 `;
