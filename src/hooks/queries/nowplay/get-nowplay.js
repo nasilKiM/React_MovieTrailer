@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import NowPlayApi from 'Apis/nowPlayApi';
+import NowPlayApi from 'Apis/movieApi';
 import { QUERY_KEY } from 'consts/query-key';
 
 const useGetNowPlay = params => {

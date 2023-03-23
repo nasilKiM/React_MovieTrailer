@@ -1,9 +1,10 @@
 // import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexSpaceBetween } from 'styles/common';
 import SearchBar from './Search';
 const BasicHeader = () => {
-	// const navigate = Navigate();
+	const navigate = useNavigate();
 
 	return (
 		<S.HeaderWrapper>
@@ -15,7 +16,7 @@ const BasicHeader = () => {
 			</S.HeaderLogo>
 			<SearchBar />
 			<S.HeaderMenu>
-				<span>상영</span>
+				<span onClick={() => navigate('/movie/now_playing')}>상영</span>
 				<span>예정</span>
 				<span>인기</span>
 			</S.HeaderMenu>
