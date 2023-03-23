@@ -1,18 +1,65 @@
-import MainTrailer from './components/MainTrailer/maintrailer';
-import NowPlaying from './components/NowPlaying/nowplaying';
-import TopRated from './components/TopRated/toprated';
-import UpComing from './components/UpComing/upcoming';
+import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
+import { useQuery } from '@tanstack/react-query';
+import MovieApi from 'Apis/movieApi';
+import styled from 'styled-components';
+import MovieSlider from './components/Banner/Slider';
+import Preview from './components/Preview/preview';
 
 const HomePage = () => {
-	console.log(process.env.REACT_APP_BASEURL);
+	const now = 'Now Playing';
+	const top = 'Top Rated';
+	const up = 'Up coming';
+
+	const { data: popular } = useQuery(['POPULAR'], () => MovieApi.getPopular(), {
+		refetchOnWindowFocus: false,
+		retry: 1,
+		cacheTime: 1000 * 60 * 60,
+	});
+
+	const { data: nowPlaying } = useQuery(
+		['NOW_PLAYING'],
+		() => MovieApi.getNowPlaying(1),
+		{
+			refetchOnWindowFocus: false,
+			retry: 1,
+			cacheTime: 1000 * 60 * 60,
+		},
+	);
+
+	const { data: topRated } = useQuery(
+		['TOP_RATED'],
+		() => MovieApi.getTopRated(1),
+		{
+			refetchOnWindowFocus: false,
+			retry: 1,
+			cacheTime: 1000 * 60 * 60,
+		},
+	);
+
+	const { data: upComing } = useQuery(
+		['UP_COMING'],
+		() => MovieApi.getUpComing(1),
+		{
+			refetchOnWindowFocus: false,
+			retry: 1,
+			cacheTime: 1000 * 60 * 60,
+		},
+	);
+
 	return (
-		<>
-			<MainTrailer />
-			<NowPlaying />
-			<TopRated />
-			<UpComing />
-		</>
+		<Wrapper>
+			{popular && <MovieSlider data={popular} />}
+			{nowPlaying && <Preview data={nowPlaying} word={now} />}
+			{topRated && <Preview data={topRated} word={top} />}
+			{upComing && <Preview data={upComing} word={up} />}
+			<ScrollUpBtn />
+		</Wrapper>
 	);
 };
 
 export default HomePage;
+
+const Wrapper = styled.div`
+	background-color: black;
+	min-width: 768px;
+`;

@@ -8,7 +8,7 @@ const BasicHeader = () => {
 	return (
 		<S.HeaderWrapper>
 			<S.HeaderLogo>
-				<img src="asset/mascot.png" />
+				<img src="Assets/mascot.png" />
 				{/* <div onClick={() => navigate('/')}>ICON</div> */}
 				{/* <Navigate to="/" /> */}
 				<span>MOVIE 찾냥?!</span>

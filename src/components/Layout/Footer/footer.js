@@ -22,7 +22,7 @@ const BasicFooter = () => {
 			<S.FooterContainer>
 				<div>Member's Github</div>
 				<S.FooterContent>
-					<div>Hyunseo Koo</div>
+					{/* <div>Hyunseo Koo</div>
 					<Link to={'https://github.com/HyunseoKoo'}> [Link]</Link>
 				</S.FooterContent>
 				<S.FooterContent>
@@ -39,10 +39,10 @@ const BasicFooter = () => {
 				</S.FooterContent>
 				<S.FooterContent>
 					<div>YoungSeung Jang</div>
-					<Link to={'https://github.com/YoungSeungJang'}> [Link]</Link>
+					<Link to={'https://github.com/YoungSeungJang'}> [Link]</Link> */}
 				</S.FooterContent>
 			</S.FooterContainer>
-			<img src="asset/footerImg.png" />
+			<img src="Assets/footerImg.png" />
 		</S.FooterWrapper>
 	);
 };

@@ -19,6 +19,7 @@ const MovieApi = {
 			},
 		});
 	},
+
 	getUpComing(params) {
 		return Axios.get(MOVIE_PATH + '/upcoming', {
 			params: {
@@ -27,11 +28,9 @@ const MovieApi = {
 		});
 	},
 
-	getSearch(searchKey) {
+	getSearch(searchKey, pageParam) {
 		return Axios.get(SEARCH_PATH + '/' + MOVIE_PATH, {
-			params: {
-				query: searchKey,
-			},
+			params: { query: searchKey, page: pageParam },
 		});
 	},
 
