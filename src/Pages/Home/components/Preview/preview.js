@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import { flexSpaceBetween } from 'Styles/common';
 
 const Preview = ({ data, word }) => {
-	const top4 = data && data.data.results.splice(0, 4);
+	const top4 = data && data.data.results.slice(0, 4);
+	//splice는 원본배열을 지워서.. slice로 변경함.
+	console.log('top4', top4);
 
 	return (
 		<S.Wrapper>
@@ -14,12 +16,15 @@ const Preview = ({ data, word }) => {
 			</S.Bar>
 			<S.Cards>
 				{top4 &&
-					top4.map((item, idx) => <HoverMovieCard movie={item} key={idx} />)}
+					top4.map(item => <HoverMovieCard movie={item} key={item.id} />)}
 			</S.Cards>
 		</S.Wrapper>
 	);
 };
 
+{
+	/*key값은 idx가 아니라(비효율적임**) 고유의 키값을 넣어야한다 */
+}
 export default Preview;
 
 const Wrapper = styled.div`
@@ -28,11 +33,9 @@ const Wrapper = styled.div`
 	background-color: black;
 	@media (max-width: 768px) {
 		width: 80%;
-		height: 300px;
 	}
 	@media (max-width: 1024px) {
 		width: 80%;
-		height: 300px;
 	}
 `;
 
@@ -57,8 +60,8 @@ const Button = styled.button`
 
 const Cards = styled.div`
 	${flexSpaceBetween}
-	/* margin-bottom: 50px; */
 	padding-bottom: 50px;
+	gap: 10px;
 `;
 
 const S = {

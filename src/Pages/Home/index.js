@@ -1,50 +1,23 @@
 import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
-import { useQuery } from '@tanstack/react-query';
-import MovieApi from 'Apis/movieApi';
 import styled from 'styled-components';
 import MovieSlider from './components/Banner/Slider';
 import Preview from './components/Preview/preview';
+import {
+	useNowPlaying,
+	usePopular,
+	useTopRated,
+	useUpComing,
+} from 'hooks/queries/now-playing';
 
 const HomePage = () => {
 	const now = 'Now Playing';
 	const top = 'Top Rated';
 	const up = 'Up coming';
 
-	const { data: popular } = useQuery(['POPULAR'], () => MovieApi.getPopular(), {
-		refetchOnWindowFocus: false,
-		retry: 1,
-		cacheTime: 1000 * 60 * 60,
-	});
-
-	const { data: nowPlaying } = useQuery(
-		['NOW_PLAYING'],
-		() => MovieApi.getNowPlaying(1),
-		{
-			refetchOnWindowFocus: false,
-			retry: 1,
-			cacheTime: 1000 * 60 * 60,
-		},
-	);
-
-	const { data: topRated } = useQuery(
-		['TOP_RATED'],
-		() => MovieApi.getTopRated(1),
-		{
-			refetchOnWindowFocus: false,
-			retry: 1,
-			cacheTime: 1000 * 60 * 60,
-		},
-	);
-
-	const { data: upComing } = useQuery(
-		['UP_COMING'],
-		() => MovieApi.getUpComing(1),
-		{
-			refetchOnWindowFocus: false,
-			retry: 1,
-			cacheTime: 1000 * 60 * 60,
-		},
-	);
+	const { popular } = usePopular();
+	const { nowPlaying } = useNowPlaying(1);
+	const { topRated } = useTopRated(1);
+	const { upComing } = useUpComing(1);
 
 	return (
 		<Wrapper>

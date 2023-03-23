@@ -1,5 +1,5 @@
 export const queryConfig = {
-	refetchOnWindowFocus: false,
-	retry: 1,
-	cacheTime: 1000 * 10 * 50,
+	// 	refetchOnWindowFocus: false,
+	// 	retry: 10,
+	// 	cacheTime: 0,
 };

@@ -38,7 +38,9 @@ const MovieApi = {
 		return Axios.get(MOVIE_PATH + `/${movieId}`);
 	},
 
-	getPopular() {
+	getPopular: async () => {
+		const data = await Axios.get(MOVIE_PATH + '/popular');
+		console.log('>>>>>>>>', data.data);
 		return Axios.get(MOVIE_PATH + '/popular');
 	},
 };

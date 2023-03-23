@@ -27,10 +27,10 @@ export default MovieCard;
 
 const Wrapper = styled.div`
 	display: flex;
+	flex: 1;
 `;
 
 const Container = styled.div`
-	width: 300px;
 	height: 450px;
 	margin: 10px;
 	border-radius: 5px;
@@ -41,15 +41,17 @@ const Container = styled.div`
 		width: 200px;
 		height: 300px;
 	}
+	:hover {
+		& > img {
+			height: 0%;
+		}
+	}
 `;
 
 const MoviePoster = styled.img`
 	width: 100%;
-	height: 75%;
+	height: 100%;
 	object-fit: fill;
-	@media (max-width: 768px) {
-		height: 50%;
-	}
 `;
 
 const MovieInfo = styled.div`
@@ -57,12 +59,8 @@ const MovieInfo = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 40%;
+	height: 100%;
 	background-color: #fff;
-	@media (max-width: 768px) {
-		height: 50%;
-		padding: 5px;
-	}
 	& div {
 		display: flex;
 		justify-content: space-between;

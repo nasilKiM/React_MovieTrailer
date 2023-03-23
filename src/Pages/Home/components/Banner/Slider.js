@@ -30,14 +30,14 @@ const MovieSlider = ({ data }) => {
 					{top4 &&
 						top4.map((src, index) => {
 							return (
-								<S.StyledSwiper key={index}>
+								<S.StyledSwiper key={src.id}>
 									<SwiperSlide>
 										<SlideContent>
 											<Title>{src.title}</Title>
 											<Overview>{src.overview}</Overview>
 										</SlideContent>
 										<SlideImage
-											key={index}
+											key={src.id}
 											src={`${IMG_BASE_URL}/${src.backdrop_path}`}
 											alt={src.title}
 										/>
