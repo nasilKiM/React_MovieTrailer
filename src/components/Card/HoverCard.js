@@ -11,12 +11,9 @@ function MovieCard({ movie }) {
 				<S.MovieInfo>
 					<div>
 						<S.MovieTitle>{movie.title}</S.MovieTitle>
-						<S.Rating>{movie.vote_average}</S.Rating>
+						<S.Rating>⭐{movie.vote_average}</S.Rating>
 					</div>
-					<S.MovieOverview>
-						<S.OverviewTitle>내용:</S.OverviewTitle>
-						<S.OverviewText>{movie.overview}</S.OverviewText>
-					</S.MovieOverview>
+					<S.OverviewText>{movie.overview}</S.OverviewText>
 				</S.MovieInfo>
 			</S.Container>
 		</S.Wrapper>
@@ -33,13 +30,22 @@ const Wrapper = styled.div`
 const Container = styled.div`
 	height: 450px;
 	margin: 10px;
+	border: 1px solid pink;
 	border-radius: 5px;
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
 	position: relative;
 	@media (max-width: 768px) {
-		width: 200px;
-		height: 300px;
+		width: 120px;
+	}
+	> div {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		margin-bottom: 10px;
+		@media (max-width: 768px) {
+			margin-bottom: 3px;
+		}
 	}
 	:hover {
 		& > img {
@@ -60,57 +66,52 @@ const MovieInfo = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	height: 100%;
-	background-color: #fff;
+	background-color: black;
+	color: white;
 	& div {
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
 	}
 `;
 
 const MovieTitle = styled.h3`
-	font-size: 20px;
+	font-size: 25px;
 	font-weight: bolder;
-	margin: 0;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	@media (max-width: 768px) {
-		font-size: 16px;
+		font-size: 12px;
 	}
 `;
 
 const Rating = styled.span`
 	background-color: #f44336;
 	color: #fff;
+	width: 60px;
+	text-align: center;
 	padding: 5px;
 	border-radius: 5px;
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: bold;
 	@media (max-width: 768px) {
-		font-size: 14px;
-	}
-`;
-
-const MovieOverview = styled.div`
-	padding: 10px;
-	@media (max-width: 768px) {
-		padding: 5px;
-	}
-`;
-
-const OverviewTitle = styled.h4`
-	width: 100%;
-	margin: 0;
-	margin-bottom: 10px;
-	@media (max-width: 768px) {
-		margin-bottom: 5px;
+		width: 30px;
+		font-size: 10px;
 	}
 `;
 
 const OverviewText = styled.span`
-	margin: 0;
-	-webkit-line-clamp: 2;
+	font-size: 20px;
+	font-weight: lighter;
+	line-height: 30px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 6;
 	-webkit-box-orient: vertical;
 	@media (max-width: 768px) {
-		font-size: 14px;
+		font-size: 10px;
+		line-height: 15px;
+		-webkit-line-clamp: 4;
 	}
 `;
 
@@ -121,7 +122,5 @@ const S = {
 	MovieInfo,
 	MovieTitle,
 	Rating,
-	MovieOverview,
-	OverviewTitle,
 	OverviewText,
 };
