@@ -1,32 +1,37 @@
+import { useQuery } from '@tanstack/react-query';
+import MovieApi from 'Apis/movieApi';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 function DetailPage() {
-	// const getDetailApi = async () => {
-	// 	const res = await axios.get(
-	// 		'https://api.themoviedb.org/3/movie/594767?api_key=4433b515ce6e4c290c3dc3f6028e2334&language=Ko',
-	// 	);
-	// 	return res;
-	// };
+	const { id } = useParams();
+	const { data } = useQuery(['DETAIL'], () => MovieApi.getDetailInfo(id), {
+		refetchOnWindowFocus: false,
+		retry: 1,
+		cacheTime: 1000 * 60 * 60,
+	});
 
-	// console.log(getDetailApi());
-	// console.log(1);
+	data && console.log(data.data);
 
-	const url =
-		'https://api.themoviedb.org/3/movie/594767?api_key=4433b515ce6e4c290c3dc3f6028e2334&language=Ko';
+	const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
 
 	return (
 		<S.DetailWrap>
 			<S.Video></S.Video>
 			<S.Contents>
 				<S.DetailTopWrap>
-					<S.PostImg></S.PostImg>
+					{data && (
+						<S.PostImg src={IMG_BASE_URL + data.data.poster_path}></S.PostImg>
+					)}
 					<S.TitleInfoWrap>
 						<S.TitleInfoWrapTop>
-							<S.Title>제목</S.Title>
+							<S.Title>{data && data.data.title}</S.Title>
 							<S.TitleInfoUl>
 								<S.TitleInfoLi>
-									<S.InnerContent>관람객 평점: </S.InnerContent>
-									<S.InnerContent2>4.8</S.InnerContent2>
+									<S.InnerContent>Rating :</S.InnerContent>
+									<S.InnerContent2>
+										{data && data.data.vote_average.toFixed(1)}
+									</S.InnerContent2>
 								</S.TitleInfoLi>
 								<S.TitleInfoLi>
 									<S.InnerContent>예매율: </S.InnerContent>
@@ -41,15 +46,22 @@ function DetailPage() {
 						<S.TitleInfoWrapTop>
 							<S.TitleInfoUl>
 								<S.TitleInfoLi>
-									<S.InnerContent>장르 </S.InnerContent>
-									<S.InnerContent2>액션</S.InnerContent2>
+									<S.InnerContent>Genres</S.InnerContent>
+									{data &&
+										data.data.genres.map(item => {
+											<S.InnerContent2>{item.name}</S.InnerContent2>;
+										})}
 								</S.TitleInfoLi>
 								<S.TitleInfoLi>
-									<S.InnerContent>제작년도</S.InnerContent>
-									<S.InnerContent2>0000-00-00</S.InnerContent2>
+									<S.InnerContent>Release Date : </S.InnerContent>
+									<S.InnerContent2>
+										{data && data.data.release_date}
+									</S.InnerContent2>
 								</S.TitleInfoLi>
 								<S.TitleInfoLi>
-									<S.InnerContent>러닝타임</S.InnerContent>
+									<S.InnerContent>
+										Running Time : {data && data.data.runtime}mins
+									</S.InnerContent>
 								</S.TitleInfoLi>
 							</S.TitleInfoUl>
 							<S.TitleInfoUl>
@@ -68,7 +80,8 @@ function DetailPage() {
 					</S.TitleInfoWrap>
 				</S.DetailTopWrap>
 				<S.DetailTopWrap>
-					<S.Title>줄거리</S.Title>
+					<S.Title>{data && data.data.tagline}</S.Title>
+					<S.InnerContent2>{data && data.data.overview}</S.InnerContent2>
 				</S.DetailTopWrap>
 			</S.Contents>
 		</S.DetailWrap>

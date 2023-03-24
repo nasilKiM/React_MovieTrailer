@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { flexSpaceBetween } from 'Styles/common';
 
 const Preview = ({ data, word }) => {
-	const top4 = data && data.data.results.splice(0, 4);
+	const top4 = data && data.data.results.slice(0, 4);
 
 	return (
 		<S.Wrapper>
@@ -16,7 +16,7 @@ const Preview = ({ data, word }) => {
 			</S.Bar>
 			<S.Cards>
 				{top4 &&
-					top4.map((item, idx) => <HoverMovieCard movie={item} key={idx} />)}
+					top4.map(item => <HoverMovieCard movie={item} key={item.id} />)}
 			</S.Cards>
 		</S.Wrapper>
 	);

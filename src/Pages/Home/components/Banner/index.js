@@ -11,7 +11,7 @@ import 'swiper/css/scrollbar';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
 
 const MovieSlider = ({ data }) => {
-	const top4 = data && data.data.results.splice(0, 4);
+	const top4 = data && data.data.results.slice(0, 4);
 
 	return (
 		<S.Wrapper>

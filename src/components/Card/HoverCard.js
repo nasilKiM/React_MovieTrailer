@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
 
 function HoverMovieCard({ movie }) {
 	const [isHover, setIsHover] = useState(false);
+	const navigate = useNavigate();
+
 	return (
 		<S.Wrapper>
 			{!isHover && (
@@ -17,7 +19,7 @@ function HoverMovieCard({ movie }) {
 				</S.Container>
 			)}
 			{isHover && (
-				<Link to={`/detail/${movie.id}`} style={{ textDecoration: 'none' }}>
+				<div onClick={() => navigate(`/detail/${movie.id}`)}>
 					<S.Container
 						onMouseOver={() => setIsHover(true)}
 						onMouseOut={() => setIsHover(false)}
@@ -28,7 +30,7 @@ function HoverMovieCard({ movie }) {
 						</div>
 						<S.OverviewText>{movie.overview}</S.OverviewText>
 					</S.Container>
-				</Link>
+				</div>
 			)}
 		</S.Wrapper>
 	);
