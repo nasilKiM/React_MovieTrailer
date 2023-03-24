@@ -19,6 +19,7 @@ const MovieApi = {
 			},
 		});
 	},
+
 	getUpComing(params) {
 		return Axios.get(MOVIE_PATH + '/upcoming', {
 			params: {
