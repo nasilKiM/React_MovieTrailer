@@ -34,6 +34,7 @@ const MovieApi = {
 				query: searchKey,
 				page: pageParam,
 			},
+
 		});
 	},
 
