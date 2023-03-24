@@ -88,7 +88,7 @@ const Contents = styled.div`
 	width: 70vw;
 	height: 100vh;
 	color: #000;
-	margin: 30px auto;
+	margin: 0 auto;
 `;
 
 const DetailTopWrap = styled.div`

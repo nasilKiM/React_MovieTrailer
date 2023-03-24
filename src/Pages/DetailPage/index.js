@@ -1,14 +1,15 @@
-import useDetailInfo from 'hooks/queries/detailInfo/get-detail';
-import useVideo from 'hooks/queries/video/get-video';
+import useDetailInfo from 'hooks/queries/get-detail-Info';
+import useVideo from 'hooks/queries/get-video';
+
 import { useParams } from 'react-router-dom';
 import DetailInfo from './components/detailInfo';
 
 function DetailPage() {
 	const { id } = useParams();
-	const { data: detail } = useDetailInfo(631842); // 매개변수 id로 변경
+	const { data: detail } = useDetailInfo(id); // 매개변수 id로 변경
 	detail && console.log(detail.data);
 
-	const { data: video } = useVideo(631842);
+	const { data: video } = useVideo(id);
 	video && console.log(video.data.results[0].key);
 
 	return (
@@ -32,4 +33,3 @@ function DetailPage() {
 }
 
 export default DetailPage;
-
