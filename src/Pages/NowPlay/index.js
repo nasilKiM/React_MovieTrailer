@@ -21,12 +21,16 @@ const NowPlayList = () => {
 
 	return (
 		<>
-			{data?.pages.map(page => { 
+			{data?.pages.map(page => {
 				return (
 					<S.Box>
 						{page?.data.results.map(data => (
 							<S.Wrapper>
-								<img src={IMG_BASE_URL + data.poster_path} alt="영화포스터" />
+								{data.poster_path ? (
+									<img src={IMG_BASE_URL + data.poster_path} alt="영화포스터" />
+								) : (
+									<img src="Assets/mascot.png" alt="이미지없음" />
+								)}
 								<S.Info>
 									<h4>{data.title}</h4>
 									<span>{data.vote_average}</span>

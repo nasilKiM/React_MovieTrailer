@@ -9,7 +9,7 @@ const BasicHeader = () => {
 	return (
 		<S.HeaderWrapper>
 			<S.HeaderLogo>
-				<img src="asset/mascot.png" />
+				<img src="Assets/mascot.png" />
 				{/* <div onClick={() => navigate('/')}>ICON</div> */}
 				{/* <Navigate to="/" /> */}
 				<span>MOVIE 찾냥?!</span>
@@ -17,8 +17,8 @@ const BasicHeader = () => {
 			<SearchBar />
 			<S.HeaderMenu>
 				<span onClick={() => navigate('/movie/now_playing')}>상영</span>
-				<span>예정</span>
-				<span>인기</span>
+				<span onClick={() => navigate('/movie/upcoming')}>예정</span>
+				<span onClick={() => navigate('/movie/top_rated')}>인기</span>
 			</S.HeaderMenu>
 		</S.HeaderWrapper>
 	);
