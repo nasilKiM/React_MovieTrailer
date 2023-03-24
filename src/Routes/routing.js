@@ -1,8 +1,8 @@
 import LayOut from 'components/Layout';
 import HomePage from 'Pages/Home';
-// import NowPlaying from 'Pages/Home/components/NowPlaying/nowplaying';
-// import TopRated from 'Pages/Home/components/TopRated/toprated';
-// import UpComing from 'Pages/Home/components/UpComing/upcoming';
+import NowPlayList from 'Pages/NowPlay';
+import TopRatedList from 'Pages/TopRated';
+import UpComingList from 'Pages/UpComing';
 import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -11,18 +11,18 @@ const router = createBrowserRouter([
 		children: [
 			{ path: '/', element: <HomePage /> },
 
-			// {
-			// 	path: '/movie/:now_playing',
-			// 	element: <NowPlaying />,
-			// },
-			// {
-			// 	path: '/movie/:upcoming',
-			// 	element: <UpComing />,
-			// },
-			// {
-			// 	path: '/movie/:top_rated',
-			// 	element: <TopRated />,
-			// },
+			{
+				path: 'movie/now_playing',
+				element: <NowPlayList />,
+			},
+			{
+				path: 'movie/upcoming',
+				element: <UpComingList />,
+			},
+			{
+				path: 'movie/top_rated',
+				element: <TopRatedList />,
+			},
 		],
 	},
 ]);

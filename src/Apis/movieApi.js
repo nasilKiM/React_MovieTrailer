@@ -30,7 +30,10 @@ const MovieApi = {
 
 	getSearch(searchKey, pageParam) {
 		return Axios.get(SEARCH_PATH + '/' + MOVIE_PATH, {
-			params: { query: searchKey, page: pageParam },
+			params: {
+				query: searchKey,
+				page: pageParam,
+			},
 		});
 	},
 
@@ -38,9 +41,7 @@ const MovieApi = {
 		return Axios.get(MOVIE_PATH + `/${movieId}`);
 	},
 
-	getPopular: async () => {
-		const data = await Axios.get(MOVIE_PATH + '/popular');
-		console.log('>>>>>>>>', data.data);
+	getPopular() {
 		return Axios.get(MOVIE_PATH + '/popular');
 	},
 };
