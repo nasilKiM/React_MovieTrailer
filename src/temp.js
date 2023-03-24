@@ -8,20 +8,20 @@ const api = axios.create({
 	},
 });
 
-export const moviesApi = {
-	nowPlaying: () => api.get('movie/now_playing'),
-	upcoming: () => api.get('movie/upcoming'),
-	popular: () => api.get('movie/popular'),
-	movieDetail: id =>
-		api.get(`movie/${id}`, {
-			params: {
-				append_to_response: 'videos',
-			},
-		}),
-	search: term =>
-		api.get('movie/search', {
-			params: {
-				query: encodeURIComponent(term),
-			},
-		}),
-};
+// export const moviesApi = {
+// 	nowPlaying: () => api.get('movie/now_playing'),
+// 	upcoming: () => api.get('movie/upcoming'),
+// 	popular: () => api.get('movie/popular'),
+// 	movieDetail: id =>
+// 		api.get(`movie/${id}`, {
+// 			params: {
+// 				append_to_response: 'videos',
+// 			},
+// 		}),
+// 	search: term =>
+// 		api.get('movie/search', {
+// 			params: {
+// 				query: encodeURIComponent(term),
+// 			},
+// 		}),
+// };

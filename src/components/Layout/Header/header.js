@@ -1,6 +1,6 @@
 // import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { flexSpaceBetween } from 'styles/common';
+import { flexSpaceBetween } from 'Styles/common';
 import SearchBar from './Search';
 const BasicHeader = () => {
 	// const navigate = Navigate();
@@ -8,7 +8,7 @@ const BasicHeader = () => {
 	return (
 		<S.HeaderWrapper>
 			<S.HeaderLogo>
-				<img src="asset/mascot.png" />
+				<img src="Assets/mascot.png" />
 				{/* <div onClick={() => navigate('/')}>ICON</div> */}
 				{/* <Navigate to="/" /> */}
 				<span>MOVIE 찾냥?!</span>

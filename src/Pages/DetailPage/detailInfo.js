@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function DetailInfoPage() {
+function DetailPage() {
 	// const getDetailApi = async () => {
 	// 	const res = await axios.get(
 	// 		'https://api.themoviedb.org/3/movie/594767?api_key=4433b515ce6e4c290c3dc3f6028e2334&language=Ko',
@@ -75,7 +75,7 @@ function DetailInfoPage() {
 	);
 }
 
-export default DetailInfoPage;
+export default DetailPage;
 
 const DetailWrap = styled.div`
 	margin: 0;
