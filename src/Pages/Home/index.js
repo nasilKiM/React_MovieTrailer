@@ -9,7 +9,6 @@ import {
 	useUpComing,
 } from 'hooks/queries/now-playing';
 
-
 const HomePage = () => {
 	const now = 'Now Playing';
 	const top = 'Top Rated';
