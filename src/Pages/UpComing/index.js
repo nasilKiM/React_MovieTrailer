@@ -1,3 +1,5 @@
+import MovieCard from 'components/Card/Card';
+import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
 import useInfiniteUpComing from 'hooks/queries/get-infinite-upcoming';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -5,7 +7,6 @@ import styled from 'styled-components';
 import { flexAlignCenter } from 'Styles/common';
 
 const UpComingList = () => {
-	const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
 	const res = useInfiniteUpComing();
 	const { data } = res;
 	const resData = data?.pages[0].data.results;
@@ -13,52 +14,54 @@ const UpComingList = () => {
 	const [ref, inView] = useInView();
 
 	useEffect(() => {
-		if (!inView) {
-			return;
-		}
+		console.log(inView);
+		if (!inView) return;
 		res.fetchNextPage();
 	}, [inView]);
 
 	return (
-		<>
-			{data?.pages.map(page => {
-				return (
-					<S.Box>
-						{page?.data.results.map(data => (
-							<S.Wrapper>
-								<img src={IMG_BASE_URL + data.poster_path} alt="영화포스터" />
-								<S.Info>
-									<h4>{data.title}</h4>
-									<span>{data.vote_average}</span>
-								</S.Info>
-							</S.Wrapper>
-						))}
-					</S.Box>
-				);
-			})}
+		<S.Wrapper>
+			<S.Container>
+				<S.Title>UP COMING LIST</S.Title>
+				<S.Card>
+					{data && resData.map(page => <MovieCard movie={page} />)}
+				</S.Card>
+			</S.Container>
+			<ScrollUpBtn />
 			<div ref={ref}></div>
-		</>
+		</S.Wrapper>
 	);
 };
 
 export default UpComingList;
 
 const Wrapper = styled.div`
-	width: 150px;
-	border: 1px solid black;
-	margin: 16px;
-	background-color: #373b69;
+	width: 100%;
+	padding: 50px 0;
+	background-color: black;
 	color: white;
-	border-radius: 20px;
-	box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
-	& > img {
-		max-width: 100%;
-	}
+`;
+
+const Container = styled.div`
+	width: 80%;
+	margin: 0 auto;
+`;
+
+const Title = styled.div`
+	font-weight: bold;
+	font-size: 30px;
+`;
+
+const Card = styled.div`
+	width: 90%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-basis: 0px;
 `;
 
 const Box = styled.div`
-	${flexAlignCenter}
 	flex-wrap: wrap;
+	${flexAlignCenter}
 `;
 
 const Info = styled.div`
@@ -74,6 +77,9 @@ const Info = styled.div`
 
 const S = {
 	Wrapper,
+	Container,
+	Title,
+	Card,
 	Info,
 	Box,
 };

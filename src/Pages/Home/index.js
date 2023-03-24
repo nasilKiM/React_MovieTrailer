@@ -8,24 +8,29 @@ import {
 	useTopRated,
 	useUpComing,
 } from 'hooks/queries/now-playing';
-
+import ShowSkeleton from 'components/Skeleton/ShowSkeleton';
 
 const HomePage = () => {
 	const now = 'Now Playing';
 	const top = 'Top Rated';
 	const up = 'Up coming';
+	const nowTo = 'now_playing';
+	const topTo = 'top_rated';
+	const upTo = 'upcoming';
 
 	const { popular } = usePopular();
 	const { nowPlaying } = useNowPlaying(1);
 	const { topRated } = useTopRated(1);
-	const { upComing } = useUpComing(1);
+	const { upComing, isLoading } = useUpComing(1);
 
 	return (
 		<Wrapper>
-			{popular && <MovieSlider data={popular} />}
-			{nowPlaying && <Preview data={nowPlaying} word={now} />}
-			{topRated && <Preview data={topRated} word={top} />}
-			{upComing && <Preview data={upComing} word={up} />}
+			{popular ? <MovieSlider data={popular} /> : <ShowSkeleton />}
+			{nowPlaying && <Preview data={nowPlaying} word={now} nav={nowTo} />}
+			{topRated && <Preview data={topRated} word={top} nav={topTo} />}
+			{upComing && (
+				<Preview data={upComing} word={up} nav={upTo} isLoading={isLoading} />
+			)}
 			<ScrollUpBtn />
 		</Wrapper>
 	);

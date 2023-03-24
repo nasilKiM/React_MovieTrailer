@@ -31,10 +31,10 @@ export const useTopRated = topRatedList => {
 };
 
 export const useUpComing = upComingList => {
-	const { data: upComing } = useQuery(
+	const { data: upComing, isLoading } = useQuery(
 		['UP_COMING'],
 		() => MovieApi.getUpComing(upComingList),
 		queryConfig,
 	);
-	return { upComing };
+	return { upComing, isLoading };
 };

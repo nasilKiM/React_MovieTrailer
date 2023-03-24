@@ -1,30 +1,31 @@
-import HoverMovieCard from 'components/Card/HoverCard';
+import { Skeleton } from '@mui/material';
+import HoverMovieCard from 'components/Card/Card';
+import { useNavigate } from 'react-router';
 
 import styled from 'styled-components';
 import { flexSpaceBetween } from 'Styles/common';
 
-const Preview = ({ data, word }) => {
+const Preview = ({ data, word, nav, isLoading }) => {
+	const navigate = useNavigate();
 	const top4 = data && data.data.results.slice(0, 4);
-	//splice는 원본배열을 지워서.. slice로 변경함.
-	console.log('top4', top4);
 
 	return (
 		<S.Wrapper>
 			<S.Bar>
 				<span style={{ color: 'white', fontSize: '20px' }}>{word}</span>
-				<S.Button>more &gt;</S.Button>
+				<S.Button onClick={() => navigate(`/movie/${nav}`)}>more &gt;</S.Button>
 			</S.Bar>
 			<S.Cards>
-				{top4 &&
-					top4.map(item => <HoverMovieCard movie={item} key={item.id} />)}
+				{top4 ? (
+					top4.map(item => <HoverMovieCard movie={item} key={item.id} />)
+				) : (
+					<Skeleton variant="rectangular" width={'1200px'} height={'450px'} />
+				)}
 			</S.Cards>
 		</S.Wrapper>
 	);
 };
 
-{
-	/*key값은 idx가 아니라(비효율적임**) 고유의 키값을 넣어야한다 */
-}
 export default Preview;
 
 const Wrapper = styled.div`

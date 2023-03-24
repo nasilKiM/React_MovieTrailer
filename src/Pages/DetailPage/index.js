@@ -7,10 +7,9 @@ import DetailInfo from './components/detailInfo';
 function DetailPage() {
 	const { id } = useParams();
 	const { data: detail } = useDetailInfo(id); // 매개변수 id로 변경
-	detail && console.log(detail.data);
-
 	const { data: video } = useVideo(id);
-	video && console.log(video.data.results[0].key);
+
+	window.scrollTo(0, 0);
 
 	return (
 		<>

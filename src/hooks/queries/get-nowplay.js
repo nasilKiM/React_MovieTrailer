@@ -4,7 +4,7 @@ import { QUERY_KEY } from 'consts/query-key';
 
 const useGetNowPlay = params => {
 	const { data, error, status, isLoading } = useQuery(
-		[QUERY_KEY.NOW_PLAY],
+		['NOW_PLAY'],
 		() => NowPlayApi.getNowPlay(params),
 
 		{

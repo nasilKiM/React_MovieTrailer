@@ -4,54 +4,54 @@ import { flexAlignCenter, flexSpaceBetween } from 'Styles/common';
 
 const BasicFooter = () => {
 	return (
-		<S.FooterWrapper>
-			<S.FooterContainer>
-				<S.FooterContent>
+		<S.Wrapper>
+			<S.Container>
+				<S.Content>
 					<div>used OPEN_API</div>
 					<Link
 						to={'https://developers.themoviedb.org/3/movies/get-movie-details'}
 					>
 						[Link]
 					</Link>
-				</S.FooterContent>
-				<S.FooterContent>
+				</S.Content>
+				<S.Content>
 					<div>our Github</div>
 					<Link to={'https://github.com/Frontend-TEAM1'}> [Link]</Link>
-				</S.FooterContent>
-			</S.FooterContainer>
-			<S.FooterContainer>
+				</S.Content>
+			</S.Container>
+			<S.Container>
 				<div>Member's Github</div>
-				<S.FooterContent>
-					{/* <div>Hyunseo Koo</div>
+				<S.Content>
+					<div>Hyunseo Koo</div>
 					<Link to={'https://github.com/HyunseoKoo'}> [Link]</Link>
-				</S.FooterContent>
-				<S.FooterContent>
+				</S.Content>
+				<S.Content>
 					<div>Nasil Kim</div>
 					<Link to={'https://github.com/nasilKiM'}> [Link]</Link>
-				</S.FooterContent>
-				<S.FooterContent>
+				</S.Content>
+				<S.Content>
 					<div>JaeHoon Lee</div>
 					<Link to={'https://github.com/JaeHoonKOR'}> [Link]</Link>
-				</S.FooterContent>
-				<S.FooterContent>
+				</S.Content>
+				<S.Content>
 					<div>Juram Lee</div>
 					<Link to={'https://github.com/JuramLee'}> [Link]</Link>
-				</S.FooterContent>
-				<S.FooterContent>
+				</S.Content>
+				<S.Content>
 					<div>YoungSeung Jang</div>
-					<Link to={'https://github.com/YoungSeungJang'}> [Link]</Link> */}
-				</S.FooterContent>
-			</S.FooterContainer>
+					<Link to={'https://github.com/YoungSeungJang'}> [Link]</Link>
+				</S.Content>
+			</S.Container>
 			<img src="Assets/footerImg.png" />
-		</S.FooterWrapper>
+		</S.Wrapper>
 	);
 };
 
 export default BasicFooter;
 
-const FooterWrapper = styled.div`
+const Wrapper = styled.div`
 	width: 100%;
-	padding: 40px 100px;
+	padding: 80px 100px 40px 100px;
 	background-color: black;
 	/* ${flexSpaceBetween} */
 	${flexAlignCenter}
@@ -71,7 +71,7 @@ const FooterWrapper = styled.div`
 	}
 `;
 
-const FooterContainer = styled.div`
+const Container = styled.div`
 	width: 30%;
 	height: 200px;
 	line-height: 30px;
@@ -80,7 +80,7 @@ const FooterContainer = styled.div`
 	}
 `;
 
-const FooterContent = styled.div`
+const Content = styled.div`
 	${flexAlignCenter}
 	@media (max-width: 768px) {
 		font-size: 0.8rem;
@@ -88,7 +88,7 @@ const FooterContent = styled.div`
 `;
 
 const S = {
-	FooterWrapper,
-	FooterContainer,
-	FooterContent,
+	Wrapper,
+	Container,
+	Content,
 };
