@@ -2,7 +2,7 @@ import useInfiniteTopRated from 'hooks/queries/get-infinite-toprated';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
-import { flexAlignCenter } from 'styles/common';
+import { flexAlignCenter } from 'Styles/common';
 
 const TopRatedList = () => {
 	const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
