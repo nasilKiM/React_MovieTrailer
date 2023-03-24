@@ -1,4 +1,3 @@
-// import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexSpaceBetween } from 'Styles/common';
@@ -8,10 +7,8 @@ const BasicHeader = () => {
 
 	return (
 		<S.HeaderWrapper>
-			<S.HeaderLogo>
+			<S.HeaderLogo onClick={() => navigate('/')}>
 				<img src="Assets/mascot.png" />
-				{/* <div onClick={() => navigate('/')}>ICON</div> */}
-				{/* <Navigate to="/" /> */}
 				<span>MOVIE 찾냥?!</span>
 			</S.HeaderLogo>
 			<SearchBar />
@@ -28,11 +25,14 @@ export default BasicHeader;
 
 const HeaderWrapper = styled.div`
 	width: 100%;
-	border: 1px solid grey;
-	padding: 50px;
+	min-width: 768px;
+	padding: 50px 100px;
 	${flexSpaceBetween}
 	color: white;
 	background-color: black;
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
 `;
 
 const HeaderLogo = styled.div`
@@ -43,15 +43,24 @@ const HeaderLogo = styled.div`
 	> img {
 		/* border: 1px dotted yellow; */
 		width: 150px;
+		@media (max-width: 768px) {
+			width: 100px;
+		}
 	}
 	> span {
 		font-size: 23px;
+		@media (max-width: 768px) {
+			font-size: 20px;
+		}
 	}
 `;
 
 const HeaderMenu = styled.div`
-	width: 25%;
+	width: 300px;
 	${flexSpaceBetween}
+	@media (max-width: 768px) {
+		width: 250px;
+	}
 `;
 
 const S = {

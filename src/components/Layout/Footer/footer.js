@@ -51,27 +51,40 @@ export default BasicFooter;
 
 const FooterWrapper = styled.div`
 	width: 100%;
-	padding: 40px;
+	padding: 40px 100px;
 	background-color: black;
-	${flexSpaceBetween}
+	/* ${flexSpaceBetween} */
+	${flexAlignCenter}
 	> div {
 		color: white;
+		@media (max-width: 768px) {
+			font-size: 0.8rem;
+		}
 	}
 	> img {
 		height: 200px;
-		/* border: 1px solid aqua; */
+		position: absolute;
+		right: 100px;
+		@media (max-width: 768px) {
+			height: 100px;
+		}
 	}
 `;
 
 const FooterContainer = styled.div`
 	width: 30%;
 	height: 200px;
-	border: 1px solid beige;
 	line-height: 30px;
+	@media (max-width: 768px) {
+		margin: 0 20px;
+	}
 `;
 
 const FooterContent = styled.div`
 	${flexAlignCenter}
+	@media (max-width: 768px) {
+		font-size: 0.8rem;
+	}
 `;
 
 const S = {
