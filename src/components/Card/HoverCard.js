@@ -36,7 +36,7 @@ const Container = styled.div`
 	overflow: hidden;
 	position: relative;
 	@media (max-width: 768px) {
-		width: 120px;
+		width: 100px;
 	}
 	> div {
 		display: flex;

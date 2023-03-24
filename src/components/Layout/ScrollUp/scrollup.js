@@ -47,12 +47,12 @@ const Div = styled.div`
 const Icon = styled.button`
 	width: 40px;
 	height: 40px;
+	text-align: center;
+	font-weight: bolder;
 	border: 1px solid red;
 	border-radius: 50%;
-	margin: 20px;
 	background-color: purple;
 	color: white;
-	display: flex;
 	position: fixed;
 	right: 50px;
 	bottom: 30px;
