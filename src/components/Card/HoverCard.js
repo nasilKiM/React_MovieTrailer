@@ -35,8 +35,13 @@ const Container = styled.div`
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
 	position: relative;
+	@media (max-width: 1000px) {
+		width: 180px;
+		height: 260px;
+	}
 	@media (max-width: 768px) {
 		width: 100px;
+		height: 180px;
 	}
 	> div {
 		display: flex;
@@ -79,6 +84,9 @@ const MovieTitle = styled.h3`
 	font-size: 25px;
 	font-weight: bolder;
 	margin-bottom: 15px;
+	@media (max-width: 1000px) {
+		font-size: 18px;
+	}
 	@media (max-width: 768px) {
 		font-size: 12px;
 	}
@@ -94,7 +102,7 @@ const Rating = styled.span`
 	font-size: 15px;
 	font-weight: bold;
 	@media (max-width: 768px) {
-		width: 30px;
+		width: 40px;
 		font-size: 10px;
 	}
 `;
@@ -105,9 +113,15 @@ const OverviewText = styled.span`
 	line-height: 30px;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	margin-top: 30px;
 	display: -webkit-box;
 	-webkit-line-clamp: 6;
 	-webkit-box-orient: vertical;
+	@media (max-width: 1000px) {
+		font-size: 15px;
+		line-height: 20px;
+		-webkit-line-clamp: 4;
+	}
 	@media (max-width: 768px) {
 		font-size: 10px;
 		line-height: 15px;
