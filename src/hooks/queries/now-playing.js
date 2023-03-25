@@ -3,12 +3,12 @@ import MovieApi from 'Apis/movieApi';
 import { queryConfig } from './@config';
 
 export const usePopular = () => {
-	const { data: popular } = useQuery(
+	const { data: popular, isLoading } = useQuery(
 		['POPULAR'],
 		() => MovieApi.getPopular(),
 		queryConfig,
 	);
-	return { popular };
+	return { popular, isLoading };
 	// home index에 선언해준 구조분해할당 {popular}를 return 값으로
 };
 

@@ -51,8 +51,8 @@ const Wrapper = styled.div`
 `;
 
 const Poster = styled.div`
-	width: 250px;
-	height: 100%;
+	width: 230px;
+	height: 105%;
 `;
 
 const Info = styled.div`
