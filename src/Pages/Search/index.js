@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import MovieApi from 'Apis/movieApi';
 import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import SearchedMovies from './components/searchedMovies';
@@ -56,9 +57,13 @@ function SearchPage() {
 				searchResults.pages.map(
 					page =>
 						page &&
-						page.data.results.map(movie => (
+						page.data.results.map(movie => {
+							const link = `/detail/${movie.id}`
+							return (
+								movie.id && <StyledLink to={link}>
 							<SearchedMovies key={movie.id} movie={movie} />
-						)),
+							</StyledLink>
+							)}),
 				)}
 			<div ref={handleScroll}></div>
 		</Wrapper>
@@ -71,3 +76,8 @@ const Wrapper = styled.div`
 	border: 2px solid cornflowerblue;
 	margin: 0 15%;
 `;
+
+const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: white;
+`

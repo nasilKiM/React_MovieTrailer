@@ -1,6 +1,7 @@
 import { useInfiniteTopRated } from 'hooks/queries/get-infinite-movieList';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexAlignCenter } from 'Styles/common';
 
@@ -24,7 +25,10 @@ const TopRatedList = () => {
 			{data?.pages.map(page => {
 				return (
 					<S.Box>
-						{page?.data.results.map(data => (
+						{page?.data.results.map(data => {
+							const link = `/detail/${data.id}`
+							return (
+								data.id && <S.StyledLink to={link}>
 							<S.Wrapper>
 								<img src={IMG_BASE_URL + data.poster_path} alt="영화포스터" />
 								<S.Info>
@@ -32,7 +36,8 @@ const TopRatedList = () => {
 									<span>{data.vote_average}</span>
 								</S.Info>
 							</S.Wrapper>
-						))}
+							</S.StyledLink>
+						)})}
 					</S.Box>
 				);
 			})}
@@ -72,8 +77,13 @@ const Info = styled.div`
 	}
 `;
 
+const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: white;
+`
 const S = {
 	Wrapper,
 	Info,
 	Box,
+	StyledLink
 };

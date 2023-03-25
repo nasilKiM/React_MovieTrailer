@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
 
 function MovieCard({ movie }) {
+	const link = `/detail/${movie.id}`
 	return (
 		<S.Wrapper>
+			<S.StyledLink to = {link}>
 			<S.Container>
 				<S.MoviePoster src={IMG_BASE_URL + movie.poster_path} />
 				<S.MovieInfo>
@@ -16,6 +19,7 @@ function MovieCard({ movie }) {
 					<S.OverviewText>{movie.overview}</S.OverviewText>
 				</S.MovieInfo>
 			</S.Container>
+			</S.StyledLink>
 		</S.Wrapper>
 	);
 }
@@ -115,6 +119,11 @@ const OverviewText = styled.span`
 	}
 `;
 
+const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: white;
+`
+
 const S = {
 	Wrapper,
 	Container,
@@ -123,4 +132,5 @@ const S = {
 	MovieTitle,
 	Rating,
 	OverviewText,
+	StyledLink
 };
