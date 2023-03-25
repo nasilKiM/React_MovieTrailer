@@ -1,4 +1,4 @@
-import useInfiniteUpComing from 'hooks/queries/get-infinite-upcoming';
+import { useInfiniteUpComing } from 'hooks/queries/get-infinite-movieList';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';

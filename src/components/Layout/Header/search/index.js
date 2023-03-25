@@ -28,8 +28,6 @@ function SearchBar() {
 export default SearchBar;
 
 const Form = styled.form`
-	//background-color: lightblue;
-	//float: left;
 	display: flex;
 	flex-direction: row;
 	width: 50%;
@@ -50,7 +48,6 @@ const InputBox = styled.input`
 	border-bottom-left-radius: 25px;
 	position: relative;
 	padding-left: 50px;
-	/* text-align: center; */
 	:focus {
 		outline: none;
 	}
@@ -63,8 +60,6 @@ const InputBox = styled.input`
 
 const Button = styled.button`
 	width: 10%;
-	/* height: 5.2vh; //어떻게 같게 하는지 모르겠습니다. 5vh씩 주고 100프로로 하면 달라집니다. */
-	//background-color: white;
 	cursor: pointer;
 	border: none;
 	border-bottom-right-radius: 25px;
@@ -74,6 +69,5 @@ const Button = styled.button`
 	}
 	& img {
 		width: 50%;
-		/* max-height: 100%; */
 	}
 `;
