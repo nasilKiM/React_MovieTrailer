@@ -1,4 +1,3 @@
-
 import { useInfiniteNowPlay } from 'hooks/queries/get-infinite-movieList';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
