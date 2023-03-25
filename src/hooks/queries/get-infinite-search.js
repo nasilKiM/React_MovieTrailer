@@ -15,7 +15,7 @@ const useInfiniteSearch = word => {
 			onError: () => console.log('에러'),
 			getNextPageParam: (lastPage, allPages) => {
 				if (lastPage.data.page < lastPage.data.total_pages) {
-					return { nextPage: lastPage.data.page + 1 };
+					return lastPage.data.page + 1;
 				} else {
 					return undefined;
 				}
