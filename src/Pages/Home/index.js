@@ -9,13 +9,13 @@ import {
 	useUpComing,
 } from 'hooks/queries/now-playing';
 
-
 const HomePage = () => {
 	const now = 'Now Playing';
 	const top = 'Top Rated';
 	const up = 'Up coming';
 
 	const { popular } = usePopular();
+
 	const { nowPlaying } = useNowPlaying(1);
 	const { topRated } = useTopRated(1);
 	const { upComing } = useUpComing(1);
