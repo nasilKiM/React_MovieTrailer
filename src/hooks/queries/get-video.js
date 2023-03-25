@@ -1,21 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import MovieApi from 'Apis/movieApi';
+import { queryConfig } from './@config';
 
 const useVideo = movieId => {
 	const { data, error, status, isLoading } = useQuery(
 		['GET_VIDEO'],
 		() => MovieApi.getVideos(movieId),
-		{
-			refetchOnWindowFocus: false,
-			retry: 1,
-			cacheTime: 1000 * 5 * 60,
-			onSuccess: res => {
-				console.log(res);
-			},
-			onError: err => {
-				console.log(err);
-			},
-		},
+		queryConfig,
 	);
 	return { data, error, status, isLoading };
 };

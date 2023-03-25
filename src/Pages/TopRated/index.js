@@ -1,4 +1,4 @@
-import useInfiniteTopRated from 'hooks/queries/get-infinite-toprated';
+import { useInfiniteTopRated } from 'hooks/queries/get-infinite-movieList';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';

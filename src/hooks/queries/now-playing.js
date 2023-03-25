@@ -9,7 +9,6 @@ export const usePopular = () => {
 		queryConfig,
 	);
 	return { popular };
-	// home index에 선언해준 구조분해할당 {popular}를 return 값으로
 };
 
 export const useNowPlaying = nowPlayingLst => {
