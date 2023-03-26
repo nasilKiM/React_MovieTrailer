@@ -41,7 +41,6 @@ function SearchPage() {
 	return (
 		<BackGround>
 			<Wrapper>
-				<SearchSkeleton />
 				{isLoading && <SearchSkeleton />}
 				{isFetchingNextPage && <SearchSkeleton />}
 				<SearchWord>

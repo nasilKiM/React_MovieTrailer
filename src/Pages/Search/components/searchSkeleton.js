@@ -15,6 +15,9 @@ const SearchSkeleton = () => {
 					<StyledSkeleton variant="rectangular" />
 					<StyledSkeleton variant="rectangular" />
 					<StyledSkeleton variant="rectangular" />
+					<StyledSkeleton variant="rectangular" />
+					<StyledSkeleton variant="rectangular" />
+					<StyledSkeleton variant="rectangular" />
 				</Right>
 			</Wrapper>
 		));
