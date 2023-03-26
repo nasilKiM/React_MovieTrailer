@@ -31,7 +31,6 @@ const Form = styled.form`
 	display: flex;
 	flex-direction: row;
 	width: 50%;
-
 	border-radius: 30px;
 	height: 5vh;
 	text-align: center;
