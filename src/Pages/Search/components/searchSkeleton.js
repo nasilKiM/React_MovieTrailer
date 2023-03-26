@@ -2,43 +2,18 @@ import { Skeleton } from '@mui/material';
 import styled from 'styled-components';
 
 const SearchSkeleton = () => {
-	return Array(3)
+	return Array(4)
 		.fill(0)
 		.map(() => (
 			<Wrapper>
 				<Left>
-					<Skeleton
-						style={{ backgroundColor: 'black' }}
-						variant="rectangular"
-						width={170}
-						height={370}
-					/>
+					<StyledSkeleton variant="rectangular" />
 				</Left>
 				<Right>
-					<Skeleton
-						animation="wave"
-						variant="rectangular"
-						width={760}
-						height={50}
-					/>
-					<Skeleton
-						animation="wave"
-						variant="rectangular"
-						width={760}
-						height={50}
-					/>
-					<Skeleton
-						animation="wave"
-						variant="rectangular"
-						width={760}
-						height={50}
-					/>
-					<Skeleton
-						animation="wave"
-						variant="rectangular"
-						width={760}
-						height={50}
-					/>
+					<StyledSkeleton variant="rectangular" />
+					<StyledSkeleton variant="rectangular" />
+					<StyledSkeleton variant="rectangular" />
+					<StyledSkeleton variant="rectangular" />
 					<StyledSkeleton variant="rectangular" />
 				</Right>
 			</Wrapper>
@@ -54,12 +29,15 @@ const Wrapper = styled.div`
 	border-radius: 25px;
 `;
 const Left = styled.div`
+	animation: 'wave';
+	background-color: aliceblue;
 	width: 20%;
 	border: 1px solid red;
 	margin-right: 1.5rem;
 `;
 
 const Right = styled.div`
+	background-color: aliceblue;
 	border: 1px solid green;
 	margin-top: 1.5rem;
 	flex: 1;
@@ -72,6 +50,5 @@ const Right = styled.div`
 const StyledSkeleton = styled(Skeleton)`
 	animation: 'wave';
 	width: 100%;
-	height: 40rem;
-	background-color: greenyellow;
+	background-color: #f0f0f0;
 `;

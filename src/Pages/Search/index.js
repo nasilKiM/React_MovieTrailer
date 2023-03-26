@@ -1,3 +1,4 @@
+import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
 import useInfiniteSearch from 'hooks/queries/get-infinite-search';
 import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -17,33 +18,7 @@ function SearchPage() {
 		hasNextPage,
 		fetchNextPage,
 	} = useInfiniteSearch(word);
-	/*
-	const {
-		data: searchResults,
-		isFetchingNextPage,
-		fetchNextPage,
-		hasNextPage,
-		isLoading,
-	} = useInfiniteQuery(
-		['searchResults', word],
-		({ pageParam = 1 }) => MovieApi.getSearch(word, pageParam),
-		{
-			onError: () => console.log('에러'),
-			getNextPageParam: (lastPage, allPages) => {
-				if (lastPage.data.page < lastPage.data.total_pages) {
-					return { nextPage: lastPage.data.page + 1 };
-				} else {
-					return undefined;
-				}
-			},
-			onSuccess: () => {
-				return { isLoading };
-			},
-		},
-	);
-	console.log('>>>>>>>>>>>>>>>>', isLoading);
-	*/
-	console.log('>>>>>>', isLoading);
+
 	const handleScroll = useCallback(
 		node => {
 			if (node && !isFetchingNextPage && hasNextPage) {
@@ -64,28 +39,46 @@ function SearchPage() {
 	);
 
 	return (
-		<Wrapper>
-			{isLoading && <SearchSkeleton />}
-
-			<h1>Search "{word}"</h1>
-
-			{searchResults &&
-				searchResults.pages.map(
-					page =>
-						page &&
-						page.data.results.map(movie => (
-							<SearchedMovies key={movie.id} movie={movie} />
-						)),
-				)}
-			<div ref={handleScroll}></div>
-		</Wrapper>
+		<BackGround>
+			<Wrapper>
+				<SearchSkeleton />
+				{isLoading && <SearchSkeleton />}
+				{isFetchingNextPage && <SearchSkeleton />}
+				<SearchWord>
+					<h1>Search "{word}"</h1>
+				</SearchWord>
+				{searchResults &&
+					searchResults.pages.map(
+						page =>
+							page &&
+							page.data.results.map(movie => (
+								<SearchedMovies key={movie.id} movie={movie} />
+							)),
+					)}
+				<div ref={handleScroll}></div>
+			</Wrapper>
+			<ScrollUpBtn />
+		</BackGround>
 	);
 }
 
 export default SearchPage;
 
+const BackGround = styled.div`
+	color: white;
+	background-color: black;
+`;
+
 const Wrapper = styled.div`
 	border: 2px solid cornflowerblue;
 	margin: 0 15%;
-	background-color: gray;
+`;
+
+const SearchWord = styled.div`
+	height: 10vh;
+	display: flex;
+	align-items: center;
+	font-weight: 900;
+	font-size: 5vh;
+	padding-left: 5%;
 `;

@@ -8,25 +8,42 @@ function SearchedMovies({ key, movie }) {
 		navigate(`/detail/${movie.id}`);
 	};
 
+	let score;
+	if (movie.vote_average !== 0) {
+		score = `⭐${movie.vote_average.toFixed(1)}`;
+	} else {
+		const releaseDate = new Date(movie.release_date);
+		const currentDate = new Date();
+		if (releaseDate > currentDate) {
+			score = `It will be released on ${movie.release_date} .`;
+		} else {
+			score = 'Sorry, there are not enough rating data yet.';
+		}
+	}
+
 	return (
 		<Wrapper onClick={goDetail}>
 			<Poster>
-				<img
-					src={IMG_BASE_URL + movie.poster_path}
-					alt="포스터"
-					width="100%"
-					height="100%"
-				></img>
+				{movie.poster_path ? (
+					<img
+						src={IMG_BASE_URL + movie.poster_path}
+						alt="포스터"
+						width="100%"
+						height="100%"
+					/>
+				) : (
+					<img
+						src="/Assets/backdrop.png"
+						alt="포스터 없음"
+						width="100%"
+						height="100%"
+					/>
+				)}
 			</Poster>
 			<Info>
 				<Top>
 					<Title>{movie.title}</Title>
-					<Score>
-						{' '}
-						{movie.vote_average === 0
-							? `${movie.release_date} 개봉 예정입니다.`
-							: `⭐${movie.vote_average.toFixed(1)}`}
-					</Score>
+					<Score>{score}</Score>
 				</Top>
 				<Preview> {movie.overview}</Preview>
 			</Info>
@@ -36,13 +53,12 @@ function SearchedMovies({ key, movie }) {
 export default SearchedMovies;
 
 const Wrapper = styled.div`
-	color: white;
 	background-color: black;
 	height: 40vh;
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	//border: 5px solid salmon;
+	border: 5px solid salmon;
 	display: flex;
 	justify-content: center;
 	margin-bottom: 10vh;
@@ -51,7 +67,6 @@ const Wrapper = styled.div`
 const Poster = styled.div`
 	width: 17%;
 	height: 100%;
-	//border: 3px solid black;
 `;
 
 const Info = styled.div`
@@ -89,6 +104,7 @@ const Score = styled.div`
 const Preview = styled.div`
 	width: 100%;
 	height: 50%;
+	padding-left: 5vh;
 	display: -webkit-box;
 	overflow: hidden;
 `;
