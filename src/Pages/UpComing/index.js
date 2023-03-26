@@ -10,7 +10,7 @@ const UpComingList = () => {
 	const res = useInfiniteUpComing();
 	const { data } = res;
 	const [ref, inView] = useInView();
-
+	window.scroll(0, 0);
 	useEffect(() => {
 		console.log(inView);
 		if (!inView) return;

@@ -10,7 +10,7 @@ const TopRatedList = () => {
 	const { data } = res;
 
 	const [ref, inView] = useInView();
-
+	window.scroll(0, 0);
 	useEffect(() => {
 		if (!inView) {
 			return;
@@ -21,7 +21,7 @@ const TopRatedList = () => {
 	return (
 		<S.Wrapper>
 			<S.Container>
-				<S.Title>UP COMING LIST</S.Title>
+				<S.Title>TOP RATED LIST</S.Title>
 				<S.Card>
 					{data?.pages.map(page => {
 						return page?.data.results.map(page => <MovieCard movie={page} />);

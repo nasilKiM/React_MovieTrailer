@@ -11,6 +11,9 @@ const MoviePreviewCard = () => {
 	const now = 'Now Playing';
 	const top = 'Top Rated';
 	const up = 'Up coming';
+	const nowTo = 'now_playing';
+	const topTo = 'top_rated';
+	const upTo = 'upcoming';
 
 	const { nowPlaying } = useNowPlaying(1);
 	const { topRated } = useTopRated(1);
@@ -18,9 +21,9 @@ const MoviePreviewCard = () => {
 
 	return (
 		<Wrapper>
-			{nowPlaying && <Preview data={nowPlaying} word={now} />}
-			{topRated && <Preview data={topRated} word={top} />}
-			{upComing && <Preview data={upComing} word={up} />}
+			{nowPlaying && <Preview data={nowPlaying} word={now} nav={nowTo} />}
+			{topRated && <Preview data={topRated} word={top} nav={topTo} />}
+			{upComing && <Preview data={upComing} word={up} nav={upTo} />}
 			<ScrollUpBtn />
 		</Wrapper>
 	);

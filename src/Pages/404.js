@@ -4,7 +4,7 @@ import { flexAllCenter } from 'Styles/common';
 function NotFoundPage() {
 	return (
 		<BG>
-			<img src="Assets/notFound.png"></img>
+			<img src="/Assets/notFound.png"></img>
 			<span>페이지가 없다냥</span>
 		</BG>
 	);
