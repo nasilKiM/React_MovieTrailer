@@ -11,7 +11,7 @@ import 'swiper/css/scrollbar';
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
 
 const MovieSlider = ({ data }) => {
-	const top4 = data && data.data.results.splice(0, 4);
+	const top4 = data?.data.results.splice(0, 4) || [];
 
 	return (
 		<S.Wrapper>
@@ -27,24 +27,23 @@ const MovieSlider = ({ data }) => {
 					}}
 					modules={[Pagination]}
 				>
-					{top4 &&
-						top4.map((src, index) => {
-							return (
-								<S.StyledSwiper key={src.id}>
-									<SwiperSlide>
-										<SlideContent>
-											<Title>{src.title}</Title>
-											<Overview>{src.overview}</Overview>
-										</SlideContent>
-										<SlideImage
-											key={src.id}
-											src={`${IMG_BASE_URL}/${src.backdrop_path}`}
-											alt={src.title}
-										/>
-									</SwiperSlide>
-								</S.StyledSwiper>
-							);
-						})}
+					{top4.map((src, index) => {
+						return (
+							<S.StyledSwiper key={src.id}>
+								<SwiperSlide>
+									<SlideContent>
+										<Title>{src.title}</Title>
+										<Overview>{src.overview}</Overview>
+									</SlideContent>
+									<SlideImage
+										key={src.id}
+										src={`${IMG_BASE_URL}/${src.backdrop_path}`}
+										alt={src.title}
+									/>
+								</SwiperSlide>
+							</S.StyledSwiper>
+						);
+					})}
 				</Swiper>
 			</S.SwiperWrapper>
 		</S.Wrapper>
@@ -57,7 +56,6 @@ const Wrapper = styled.div`
 	width: 100%;
 	background-color: black;
 	padding-top: 50px;
-	margin-bottom: 100px;
 	& > div {
 		overflow: hidden;
 	}

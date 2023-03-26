@@ -2,20 +2,21 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexSpaceBetween } from 'Styles/common';
 import SearchBar from './search';
+
 const BasicHeader = () => {
 	const navigate = useNavigate();
 
 	return (
 		<S.HeaderWrapper>
 			<S.HeaderLogo onClick={() => navigate('/')}>
-				<img src="Assets/mascot.png" />
+				<img src="/Assets/mascot.png" />
 				<span>MOVIE 찾냥?!</span>
 			</S.HeaderLogo>
 			<SearchBar />
 			<S.HeaderMenu>
-				<span onClick={() => navigate('/movie/now_playing')}>상영</span>
-				<span onClick={() => navigate('/movie/upcoming')}>예정</span>
-				<span onClick={() => navigate('/movie/top_rated')}>인기</span>
+				<div onClick={() => navigate('/movie/now_playing')}>상영</div>
+				<div onClick={() => navigate('/movie/upcoming')}>예정</div>
+				<div onClick={() => navigate('/movie/top_rated')}>인기</div>
 			</S.HeaderMenu>
 		</S.HeaderWrapper>
 	);
@@ -39,15 +40,15 @@ const HeaderLogo = styled.div`
 	height: 50px;
 	width: 300px;
 	${flexSpaceBetween}
-	/* border: 1px dotted yellow; */
 	> img {
-		/* border: 1px dotted yellow; */
+		cursor: pointer;
 		width: 150px;
 		@media (max-width: 768px) {
 			width: 100px;
 		}
 	}
 	> span {
+		cursor: pointer;
 		font-size: 23px;
 		@media (max-width: 768px) {
 			font-size: 20px;
@@ -60,6 +61,11 @@ const HeaderMenu = styled.div`
 	${flexSpaceBetween}
 	@media (max-width: 768px) {
 		width: 250px;
+	}
+	& > div:hover {
+		font-size: 1.1rem;
+		cursor: pointer;
+		transform: scale(1.2);
 	}
 `;
 
