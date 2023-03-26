@@ -1,3 +1,4 @@
+import MovieCard from 'components/Card/Card';
 import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
 import { useInfiniteNowPlay } from 'hooks/queries/get-infinite-movieList';
 import { useEffect } from 'react';
@@ -22,59 +23,50 @@ const NowPlayList = () => {
 	}, [inView]);
 
 	return (
-		<>
-			{data?.pages.map(page => {
-				return (
-					<S.Box>
-						{page?.data.results.map(data => {
-							const link = `/detail/${data.id}`;
-							return (
-								data.id && (
-									<S.StyledLink to={link}>
-										<S.Wrapper>
-											{data.poster_path ? (
-												<img
-													src={IMG_BASE_URL + data.poster_path}
-													alt="영화포스터"
-												/>
-											) : (
-												<img src="Assets/mascot.png" alt="이미지없음" />
-											)}
-											<S.Info>
-												<h4>{data.title}</h4>
-												<span>{data.vote_average}</span>
-											</S.Info>
-										</S.Wrapper>
-									</S.StyledLink>
-								)
-							);
-						})}
-					</S.Box>
-				);
-			})}
+		<S.Wrapper>
+			<S.Container>
+				<S.Title>UP COMING LIST</S.Title>
+				<S.Card>
+					{data?.pages.map(page => {
+						return page?.data.results.map(page => <MovieCard movie={page} />);
+					})}
+				</S.Card>
+			</S.Container>
 			<ScrollUpBtn />
 			<div ref={ref}></div>
-		</>
+		</S.Wrapper>
 	);
 };
 
 export default NowPlayList;
+
 const Wrapper = styled.div`
-	width: 150px;
-	border: 1px solid black;
-	margin: 16px;
-	background-color: #373b69;
+	width: 100%;
+	padding: 50px 0;
+	background-color: black;
 	color: white;
-	border-radius: 20px;
-	box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
-	& > img {
-		max-width: 100%;
-	}
+`;
+
+const Container = styled.div`
+	width: 80%;
+	margin: 0 auto;
+`;
+
+const Title = styled.div`
+	font-weight: bold;
+	font-size: 30px;
+`;
+
+const Card = styled.div`
+	width: 90%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-basis: 0px;
 `;
 
 const Box = styled.div`
-	${flexAlignCenter}
 	flex-wrap: wrap;
+	${flexAlignCenter}
 `;
 
 const Info = styled.div`
@@ -95,6 +87,9 @@ const StyledLink = styled(Link)`
 
 const S = {
 	Wrapper,
+	Container,
+	Title,
+	Card,
 	Info,
 	Box,
 	StyledLink,

@@ -10,8 +10,6 @@ import { flexAlignCenter } from 'Styles/common';
 const UpComingList = () => {
 	const res = useInfiniteUpComing();
 	const { data } = res;
-	const resData = data?.pages[0].data.results;
-
 	const [ref, inView] = useInView();
 
 	useEffect(() => {
@@ -25,12 +23,12 @@ const UpComingList = () => {
 			<S.Container>
 				<S.Title>UP COMING LIST</S.Title>
 				<S.Card>
-					{data && resData.map(page => <MovieCard movie={page} />)}
+					{data?.pages.map(page => {
+						return page?.data.results.map(page => <MovieCard movie={page} />);
+					})}
 				</S.Card>
 			</S.Container>
-
 			<ScrollUpBtn />
-
 			<div ref={ref}></div>
 		</S.Wrapper>
 	);

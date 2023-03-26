@@ -16,7 +16,7 @@ function MovieCard({ movie }) {
 					src={
 						movie.poster_path
 							? IMG_BASE_URL + movie.poster_path
-							: 'Assets/backdrop.png'
+							: '/Assets/backdrop.png'
 					}
 				/>
 				<S.MovieInfo>

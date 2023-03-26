@@ -42,7 +42,7 @@ const BasicFooter = () => {
 					<Link to={'https://github.com/YoungSeungJang'}> [Link]</Link>
 				</S.Content>
 			</S.Container>
-			<img src="Assets/footerImg.png" />
+			<img src="/Assets/footerImg.png" />
 		</S.Wrapper>
 	);
 };
