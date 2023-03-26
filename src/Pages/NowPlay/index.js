@@ -27,22 +27,28 @@ const NowPlayList = () => {
 				return (
 					<S.Box>
 						{page?.data.results.map(data => {
-							const link = `/detail/${data.id}` 
+							const link = `/detail/${data.id}`;
 							return (
-								data.id && <S.StyledLink to={link}>
-							<S.Wrapper>
-								{data.poster_path ? (
-									<img src={IMG_BASE_URL + data.poster_path} alt="영화포스터" />
-								) : (
-									<img src="Assets/mascot.png" alt="이미지없음" />
-								)}
-								<S.Info>
-									<h4>{data.title}</h4>
-									<span>{data.vote_average}</span>
-								</S.Info>
-							</S.Wrapper>
-							</S.StyledLink>
-								)})}
+								data.id && (
+									<S.StyledLink to={link}>
+										<S.Wrapper>
+											{data.poster_path ? (
+												<img
+													src={IMG_BASE_URL + data.poster_path}
+													alt="영화포스터"
+												/>
+											) : (
+												<img src="Assets/mascot.png" alt="이미지없음" />
+											)}
+											<S.Info>
+												<h4>{data.title}</h4>
+												<span>{data.vote_average}</span>
+											</S.Info>
+										</S.Wrapper>
+									</S.StyledLink>
+								)
+							);
+						})}
 					</S.Box>
 				);
 			})}
@@ -85,11 +91,11 @@ const Info = styled.div`
 const StyledLink = styled(Link)`
 	text-decoration: none;
 	color: white;
-`
+`;
 
 const S = {
 	Wrapper,
 	Info,
 	Box,
-	StyledLink
+	StyledLink,
 };
