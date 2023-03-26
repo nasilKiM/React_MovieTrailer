@@ -1,4 +1,3 @@
-
 import MovieCard from 'components/Card/Card';
 import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
 import { useInfiniteUpComing } from 'hooks/queries/get-infinite-movieList';
@@ -21,7 +20,6 @@ const UpComingList = () => {
 	}, [inView]);
 
 	return (
-
 		<S.Wrapper>
 			<S.Container>
 				<S.Title>UP COMING LIST</S.Title>
@@ -30,7 +28,6 @@ const UpComingList = () => {
 				</S.Card>
 			</S.Container>
 
-		
 			<ScrollUpBtn />
 			<div ref={ref}></div>
 		</S.Wrapper>

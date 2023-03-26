@@ -10,7 +10,6 @@ function App() {
 			<GlobalStyles />
 			<RouterProvider router={router} />
 		</QueryClientProvider>
-
 	);
 }
 
