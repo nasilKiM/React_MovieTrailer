@@ -23,6 +23,7 @@ const NowPlayList = () => {
 	}, [inView]);
 
 	return (
+
 		<S.Wrapper>
 			<S.Container>
 				<S.Title>UP COMING LIST</S.Title>
@@ -32,6 +33,7 @@ const NowPlayList = () => {
 					})}
 				</S.Card>
 			</S.Container>
+
 			<ScrollUpBtn />
 			<div ref={ref}></div>
 		</S.Wrapper>
@@ -64,33 +66,12 @@ const Card = styled.div`
 	flex-basis: 0px;
 `;
 
-const Box = styled.div`
-	flex-wrap: wrap;
-	${flexAlignCenter}
-`;
 
-const Info = styled.div`
-	${flexAlignCenter}
-	padding: 20px;
-	justify-content: space-between;
-
-	& > span {
-		margin-left: 10px;
-		font-size: 14px;
-	}
-`;
-
-const StyledLink = styled(Link)`
-	text-decoration: none;
-	color: white;
-`;
 
 const S = {
 	Wrapper,
 	Container,
 	Title,
 	Card,
-	Info,
-	Box,
-	StyledLink,
+	
 };
