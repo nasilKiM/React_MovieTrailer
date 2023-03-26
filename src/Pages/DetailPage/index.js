@@ -26,7 +26,7 @@ function DetailPage() {
 					genres={detail.data.genres[0].name}
 					tagline={detail.data.tagline}
 					poster_path={detail.data.poster_path}
-					videoId={video.data.results[0].key}
+					videoId={video?.data.results[0] ? video.data.results[0].key : null}
 				/>
 			)}
 		</>

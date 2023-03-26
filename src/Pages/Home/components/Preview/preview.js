@@ -1,4 +1,3 @@
-import { Skeleton } from '@mui/material';
 import HoverMovieCard from 'components/Card/Card';
 import { useNavigate } from 'react-router';
 
