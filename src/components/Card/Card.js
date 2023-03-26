@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { useNavigate } from 'react-router';
+
 import styled from 'styled-components';
 
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
@@ -120,6 +122,11 @@ const OverviewText = styled.span`
 	}
 `;
 
+const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: white;
+`;
+
 const S = {
 	Wrapper,
 	Container,
@@ -128,4 +135,5 @@ const S = {
 	MovieTitle,
 	Rating,
 	OverviewText,
+	StyledLink,
 };

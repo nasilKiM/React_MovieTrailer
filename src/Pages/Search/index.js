@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import MovieApi from 'Apis/movieApi';
 import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import SearchedMovies from './components/searchedMovies';
@@ -87,4 +88,9 @@ const Container = styled.div`
 		color: white;
 		font-size: 30px;
 	}
+`;
+
+const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: white;
 `;

@@ -3,6 +3,7 @@ import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
 import { useInfiniteUpComing } from 'hooks/queries/get-infinite-movieList';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexAlignCenter } from 'Styles/common';
 
@@ -29,6 +30,7 @@ const UpComingList = () => {
 			</S.Container>
 
 			<ScrollUpBtn />
+
 			<div ref={ref}></div>
 		</S.Wrapper>
 	);
@@ -76,6 +78,11 @@ const Info = styled.div`
 	}
 `;
 
+const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: white;
+`;
+
 const S = {
 	Wrapper,
 	Container,
@@ -83,4 +90,5 @@ const S = {
 	Card,
 	Info,
 	Box,
+	StyledLink,
 };
