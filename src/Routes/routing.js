@@ -1,4 +1,5 @@
 import LayOut from 'components/Layout';
+import NotFoundPage from 'Pages/404';
 import DetailPage from 'Pages/DetailPage';
 import HomePage from 'Pages/Home';
 import NowPlayList from 'Pages/NowPlay';
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
 				element: <DetailPage />,
 			},
 		],
+	},
+	{
+		path: '*',
+		element: <NotFoundPage />,
 	},
 ]);
 

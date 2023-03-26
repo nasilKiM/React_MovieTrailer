@@ -37,15 +37,19 @@ function SearchPage() {
 		},
 		[hasNextPage, fetchNextPage],
 	);
+	searchResults && console.log(searchResults);
 
 	return (
-		<BackGround>
-			<Wrapper>
+		<Wrapper>
+			<Container>
 				{isLoading && <SearchSkeleton />}
 				{isFetchingNextPage && <SearchSkeleton />}
-				<SearchWord>
-					<h1>Search "{word}"</h1>
-				</SearchWord>
+				{searchResults && searchResults.pages[0].data.results.length === 0 ? (
+					<span>No result of "{word}"</span>
+				) : (
+					<span>Search results of "{word}"</span>
+				)}
+
 				{searchResults &&
 					searchResults.pages.map(
 						page =>
@@ -55,29 +59,25 @@ function SearchPage() {
 							)),
 					)}
 				<div ref={handleScroll}></div>
-			</Wrapper>
-			<ScrollUpBtn />
-		</BackGround>
+				<ScrollUpBtn />
+			</Container>
+		</Wrapper>
 	);
 }
 
 export default SearchPage;
 
-const BackGround = styled.div`
-	color: white;
+const Wrapper = styled.div`
 	background-color: black;
 `;
 
-const Wrapper = styled.div`
-	border: 2px solid cornflowerblue;
-	margin: 0 15%;
-`;
-
-const SearchWord = styled.div`
-	height: 10vh;
-	display: flex;
-	align-items: center;
-	font-weight: 900;
-	font-size: 5vh;
-	padding-left: 5%;
+const Container = styled.div`
+	width: 80%;
+	margin: 0 auto;
+	background-color: black;
+	padding: 20px 50px;
+	> span {
+		color: white;
+		font-size: 30px;
+	}
 `;
