@@ -56,7 +56,6 @@ const Wrapper = styled.div`
 	width: 100%;
 	background-color: black;
 	padding-top: 50px;
-	/* margin-bottom: 100px; */
 	& > div {
 		overflow: hidden;
 	}

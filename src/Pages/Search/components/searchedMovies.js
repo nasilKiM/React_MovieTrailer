@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { flexAlignCenter } from 'Styles/common';
 
 function SearchedMovies({ key, movie }) {
 	const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w300';
@@ -21,12 +22,12 @@ function SearchedMovies({ key, movie }) {
 			<Info>
 				<Top>
 					<Title>{movie.title}</Title>
-					<Score>
+					<span>
 						{' '}
 						{movie.vote_average === 0
 							? `${movie.release_date} 개봉 예정입니다.`
 							: `⭐${movie.vote_average.toFixed(1)}`}
-					</Score>
+					</span>
 				</Top>
 				<Preview> {movie.overview}</Preview>
 			</Info>
@@ -41,54 +42,42 @@ const Wrapper = styled.div`
 	height: 40vh;
 	list-style: none;
 	margin: 0;
-	padding: 0;
-	//border: 5px solid salmon;
+	padding: 50px;
+	border: 1px double grey;
+	border-radius: 20px;
 	display: flex;
 	justify-content: center;
-	margin-bottom: 10vh;
+	margin-top: 30px;
 `;
 
 const Poster = styled.div`
-	width: 17%;
-	height: 100%;
-	//border: 3px solid black;
+	width: 230px;
+	height: 105%;
 `;
 
 const Info = styled.div`
-	width: 83%;
+	width: 80%;
 	height: 100%;
-	//border: 3px solid yellowgreen;
-	display: flex;
-	flex-direction: column;
+	padding: 50px;
 `;
 const Top = styled.div`
-	height: 50%;
-	//border: 3px solid yellowgreen;
-	display: flex;
-	flex-direction: row;
+	${flexAlignCenter}
+	margin-bottom: 30px;
 `;
 const Title = styled.div`
-	width: 40%;
 	height: 100%;
-	//border: 2px solid hotpink;
 	font-weight: 900;
-	font-size: large;
-	display: flex;
-	align-items: center;
-	padding-left: 10%;
-`;
-
-const Score = styled.div`
-	width: 60%;
-	height: 100%;
-	//border: 2px solid tan;
-	display: flex;
-	align-items: center;
+	font-size: 30px;
+	margin-right: 20px;
 `;
 
 const Preview = styled.div`
 	width: 100%;
-	height: 50%;
-	display: -webkit-box;
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: lighter;
 	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
 `;

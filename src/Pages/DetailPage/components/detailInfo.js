@@ -18,7 +18,11 @@ function DetailInfo({
 	console.log(integer);
 	return (
 		<S.DetailWrap>
-			<S.Iframe width="100%" height="100%" src={VIDEO_BASE_URL} />
+			{videoId ? (
+				<S.Iframe width="100%" height="100%" src={VIDEO_BASE_URL} />
+			) : (
+				<div></div>
+			)}
 			<S.Contents>
 				<S.DetailTopWrap>
 					<S.PostImg src={IMG_BASE_URL + poster_path} />

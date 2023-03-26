@@ -6,11 +6,10 @@ import DetailInfo from './components/detailInfo';
 
 function DetailPage() {
 	const { id } = useParams();
-	const { data: detail } = useDetailInfo(id); // 매개변수 id로 변경
-	detail && console.log(detail.data);
-
+	const { data: detail } = useDetailInfo(id);
 	const { data: video } = useVideo(id);
-	video && console.log(video.data.results[0].key);
+
+	window.scrollTo(0, 0);
 
 	return (
 		<>
@@ -25,7 +24,7 @@ function DetailPage() {
 					genres={detail.data.genres[0].name}
 					tagline={detail.data.tagline}
 					poster_path={detail.data.poster_path}
-					videoId={video.data.results[0].key}
+					videoId={video?.data.results[0] ? video.data.results[0].key : null}
 				/>
 			)}
 		</>

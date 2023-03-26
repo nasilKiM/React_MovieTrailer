@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import MovieApi from 'Apis/movieApi';
 import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import SearchedMovies from './components/searchedMovies';
@@ -48,19 +49,26 @@ function SearchPage() {
 		},
 		[hasNextPage, fetchNextPage],
 	);
+	searchResults && console.log(searchResults);
 
 	return (
 		<Wrapper>
-			<h1>Search "{word}"</h1>
-			{searchResults &&
-				searchResults.pages.map(
-					page =>
-						page &&
-						page.data.results.map(movie => (
-							<SearchedMovies key={movie.id} movie={movie} />
-						)),
+			<Container>
+				{searchResults && searchResults.pages[0].data.results.length === 0 ? (
+					<span>No result of "{word}"</span>
+				) : (
+					<span>Search results of "{word}"</span>
 				)}
-			<div ref={handleScroll}></div>
+				{searchResults &&
+					searchResults.pages.map(
+						page =>
+							page &&
+							page.data.results.map(movie => (
+								<SearchedMovies key={movie.id} movie={movie} />
+							)),
+					)}
+				<div ref={handleScroll}></div>
+			</Container>
 		</Wrapper>
 	);
 }
@@ -68,6 +76,20 @@ function SearchPage() {
 export default SearchPage;
 
 const Wrapper = styled.div`
-	border: 2px solid cornflowerblue;
-	margin: 0 15%;
+	background-color: black;
+`;
+
+const Container = styled.div`
+	width: 80%;
+	margin: 0 auto;
+	background-color: black;
+	padding: 20px 50px;
+	> span {
+		color: white;
+		font-size: 30px;
+	}
+`;
+const StyledLink = styled(Link)`
+	text-decoration: none;
+	color: white;
 `;
