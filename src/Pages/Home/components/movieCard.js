@@ -18,10 +18,10 @@ const MoviePreviewCard = () => {
 
 	return (
 		<Wrapper>
-			= {nowPlaying && <Preview data={nowPlaying} word={now} />}={' '}
-			{topRated && <Preview data={topRated} word={top} />}={' '}
+			{nowPlaying && <Preview data={nowPlaying} word={now} />}
+			{topRated && <Preview data={topRated} word={top} />}
 			{upComing && <Preview data={upComing} word={up} />}
-			= <ScrollUpBtn />
+			<ScrollUpBtn />
 		</Wrapper>
 	);
 };
