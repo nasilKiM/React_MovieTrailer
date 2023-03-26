@@ -1,4 +1,5 @@
-import useInfiniteNowPlay from 'hooks/queries/get-infinite-nowplay';
+import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
+import { useInfiniteNowPlay } from 'hooks/queries/get-infinite-movieList';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
@@ -40,6 +41,7 @@ const NowPlayList = () => {
 					</S.Box>
 				);
 			})}
+			<ScrollUpBtn />
 			<div ref={ref}></div>
 		</>
 	);

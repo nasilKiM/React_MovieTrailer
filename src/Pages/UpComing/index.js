@@ -1,6 +1,7 @@
+
 import MovieCard from 'components/Card/Card';
 import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
-import useInfiniteUpComing from 'hooks/queries/get-infinite-upcoming';
+import { useInfiniteUpComing } from 'hooks/queries/get-infinite-movieList';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
@@ -20,6 +21,7 @@ const UpComingList = () => {
 	}, [inView]);
 
 	return (
+
 		<S.Wrapper>
 			<S.Container>
 				<S.Title>UP COMING LIST</S.Title>
@@ -27,6 +29,8 @@ const UpComingList = () => {
 					{data && resData.map(page => <MovieCard movie={page} />)}
 				</S.Card>
 			</S.Container>
+
+		
 			<ScrollUpBtn />
 			<div ref={ref}></div>
 		</S.Wrapper>

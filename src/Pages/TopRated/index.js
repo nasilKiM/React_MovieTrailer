@@ -1,4 +1,5 @@
-import useInfiniteTopRated from 'hooks/queries/get-infinite-toprated';
+import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
+import { useInfiniteTopRated } from 'hooks/queries/get-infinite-movieList';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
@@ -36,6 +37,7 @@ const TopRatedList = () => {
 					</S.Box>
 				);
 			})}
+			<ScrollUpBtn />
 			<div ref={ref}></div>
 		</>
 	);

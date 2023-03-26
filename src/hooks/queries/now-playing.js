@@ -8,8 +8,8 @@ export const usePopular = () => {
 		() => MovieApi.getPopular(),
 		queryConfig,
 	);
-	return { popular, isLoading };
-	// home index에 선언해준 구조분해할당 {popular}를 return 값으로
+
+	return { popular };
 };
 
 export const useNowPlaying = nowPlayingLst => {

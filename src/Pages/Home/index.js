@@ -8,8 +8,6 @@ import {
 	useTopRated,
 	useUpComing,
 } from 'hooks/queries/now-playing';
-import ShowSkeleton from 'components/Skeleton/ShowSkeleton';
-import { Skeleton } from '@mui/material';
 
 const HomePage = () => {
 	const now = 'Now Playing';
@@ -26,18 +24,15 @@ const HomePage = () => {
 
 	return (
 		<>
-			{isLoading && (
-				<Skeleton variant="rectangular" width={'1200px'} height={'500px'} />
-			)}
 			<Wrapper>
-				{popular ? <MovieSlider data={popular} /> : <ShowSkeleton />}
+				{popular && <MovieSlider data={popular} />}
 				{nowPlaying && <Preview data={nowPlaying} word={now} nav={nowTo} />}
 				{topRated && <Preview data={topRated} word={top} nav={topTo} />}
-				{popIsLoading ? (
-					<Skeleton variant="rectangular" width={'1200px'} height={'500px'} />
-				) : (
+
+				{upComing && (
 					<Preview data={upComing} word={up} nav={upTo} isLoading={isLoading} />
 				)}
+
 				<ScrollUpBtn />
 			</Wrapper>
 		</>
@@ -49,9 +44,4 @@ export default HomePage;
 const Wrapper = styled.div`
 	background-color: black;
 	min-width: 768px;
-`;
-
-const SkeletonUI = styled(Skeleton)`
-	width: 80%;
-	height: 500px;
 `;

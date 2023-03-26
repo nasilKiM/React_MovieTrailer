@@ -78,6 +78,7 @@ const Wrapper = styled.div`
 	background-color: black;
 `;
 
+
 const Container = styled.div`
 	width: 80%;
 	margin: 0 auto;
@@ -88,3 +89,4 @@ const Container = styled.div`
 		font-size: 30px;
 	}
 `;
+
