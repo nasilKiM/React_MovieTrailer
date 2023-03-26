@@ -9,13 +9,17 @@ const NowPlayList = () => {
 	const res = useInfiniteNowPlay();
 	const { data } = res;
 	const [ref, inView] = useInView();
-	window.scroll(0, 0);
+
 	useEffect(() => {
 		if (!inView) {
 			return;
 		}
 		res.fetchNextPage();
 	}, [inView]);
+
+	useEffect(() => {
+		window.scroll(0, 0);
+	}, []);
 
 	return (
 		<S.Wrapper>
