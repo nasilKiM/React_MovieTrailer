@@ -1,3 +1,4 @@
+import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
 import { useInfiniteNowPlay } from 'hooks/queries/get-infinite-movieList';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -29,7 +30,7 @@ const NowPlayList = () => {
 								{data.poster_path ? (
 									<img src={IMG_BASE_URL + data.poster_path} alt="영화포스터" />
 								) : (
-									<img src="Assets/mascot.png" alt="이미지없음" />
+									<img src="/Assets/backdrop.png" alt="이미지없음" />
 								)}
 								<S.Info>
 									<h4>{data.title}</h4>
@@ -40,6 +41,7 @@ const NowPlayList = () => {
 					</S.Box>
 				);
 			})}
+			<ScrollUpBtn />
 			<div ref={ref}></div>
 		</>
 	);
