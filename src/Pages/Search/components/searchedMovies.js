@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexAlignCenter } from 'Styles/common';
 
-function SearchedMovies({ key, movie }) {
+function SearchedMovies({ movie }) {
 	const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w300';
 	const navigate = useNavigate();
 	const goDetail = () => {

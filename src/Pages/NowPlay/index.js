@@ -5,13 +5,9 @@ import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
 
-
 const NowPlayList = () => {
-	const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
 	const res = useInfiniteNowPlay();
 	const { data } = res;
-	const resData = data?.pages[0].data.results;
-
 	const [ref, inView] = useInView();
 
 	useEffect(() => {
@@ -22,7 +18,6 @@ const NowPlayList = () => {
 	}, [inView]);
 
 	return (
-
 		<S.Wrapper>
 			<S.Container>
 				<S.Title>UP COMING LIST</S.Title>
@@ -65,12 +60,9 @@ const Card = styled.div`
 	flex-basis: 0px;
 `;
 
-
-
 const S = {
 	Wrapper,
 	Container,
 	Title,
 	Card,
-	
 };

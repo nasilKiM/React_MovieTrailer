@@ -6,10 +6,8 @@ import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
 
 const TopRatedList = () => {
-	const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
 	const res = useInfiniteTopRated();
 	const { data } = res;
-	const resData = data?.pages[0].data.results;
 
 	const [ref, inView] = useInView();
 

@@ -12,15 +12,12 @@ class ErrorBoundary extends React.Component {
 	}
 
 	componentDidCatch(error, errorInfo) {
-		// 에러 리포팅, 에러 기록, 에러 핸들링
-		// sentry, 에러 캡쳐 및 기록 라이브러리
 		console.log(error, errorInfo);
 	}
 
 	render() {
 		if (this.state.hasError) {
-			//커스텀 Error UI 넣어주기
-			return; //<Fallback />;
+			return;
 		}
 
 		return this.props.children;
