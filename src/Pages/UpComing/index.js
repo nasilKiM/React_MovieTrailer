@@ -3,9 +3,8 @@ import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
 import { useInfiniteUpComing } from 'hooks/queries/get-infinite-movieList';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { Link } from 'react-router-dom';
+
 import styled from 'styled-components';
-import { flexAlignCenter } from 'Styles/common';
 
 const UpComingList = () => {
 	const res = useInfiniteUpComing();
@@ -19,7 +18,6 @@ const UpComingList = () => {
 	}, [inView]);
 
 	return (
-
 		<S.Wrapper>
 			<S.Container>
 				<S.Title>UP COMING LIST</S.Title>
