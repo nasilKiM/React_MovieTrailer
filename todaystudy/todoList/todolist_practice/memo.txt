@@ -1,0 +1,16 @@
+
+react-router-dom 라이브러리
+
+    router => 네트워크 데이터 전송 = 소포
+    react에서 dom을 전달하기 위해 사용하는 소포
+    경로 설정에 관한 라이브러리
+
+    => url이 변화함에 따라 다른 컴포넌트를 index.html에 보여주는 역할
+    정확히는 app.js에 보여주는거고 app.js를 index.js가 index.html에 전달
+
+    npm i react-router-dom
+
+    ** 라이브러리는 매번 업데이트 되기 때문에 구글링 보다는 공식 문서 꼭꼭 확인해서 최신화 버전 사용하기!!
+    https://reactrouter.com/en/main
+
+    react-router-dom@6.6.2
