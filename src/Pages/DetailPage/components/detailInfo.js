@@ -1,75 +1,72 @@
+import { useDetailInfo } from 'hooks/queries/get-movie-infos';
 import styled from 'styled-components';
+import { IMAGE_URL } from 'Consts/URL';
+function DetailInfo({ id }) {
+	const { data: detail } = useDetailInfo(id);
+	const data = detail && detail.data;
 
-function DetailInfo({
-	title,
-	popularity,
-	release_date,
-	runtime,
-	vote_average,
-	overview,
-	genres,
-	tagline,
-	poster_path,
-	videoId,
-}) {
-	const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
-	const VIDEO_BASE_URL = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
-	const integer = vote_average.toFixed(2);
-	console.log(integer);
+	const IMG_BASE_URL = IMAGE_URL(1280);
+	const integer = detail && data.vote_average.toFixed(2);
+
 	return (
 		<S.DetailWrap>
-			{videoId ? (
-				<S.Iframe width="100%" height="100%" src={VIDEO_BASE_URL} />
-			) : (
-				<div></div>
+			{data && (
+				<>
+					<S.Contents>
+						<S.DetailTopWrap>
+							<S.PostImg src={IMG_BASE_URL + data.poster_path} />
+							<S.TitleInfoWrap>
+								<S.TitleInfoWrapTop>
+									<S.Title>{data.title}</S.Title>
+									<S.TitleInfoUl>
+										<S.TitleInfoLi>
+											<S.InnerContent>Move ratings : </S.InnerContent>
+											<S.InnerContent2>⭐{data.integer}</S.InnerContent2>
+										</S.TitleInfoLi>
+										<S.TitleInfoLi>
+											<S.InnerContent>
+												The cumulative number of spectators :
+											</S.InnerContent>
+											<S.InnerContent2>
+												{data.popularity} million
+											</S.InnerContent2>
+										</S.TitleInfoLi>
+									</S.TitleInfoUl>
+								</S.TitleInfoWrapTop>
+								<S.TitleInfoWrapTop>
+									<S.TitleInfoUl>
+										<S.TitleInfoLi>
+											<S.InnerContent>Genres : </S.InnerContent>
+											<S.InnerContent2>{data.genres[0].name}</S.InnerContent2>
+										</S.TitleInfoLi>
+										<S.TitleInfoLi>
+											<S.InnerContent>Release date : </S.InnerContent>
+											<S.InnerContent2>{data.release_date}</S.InnerContent2>
+										</S.TitleInfoLi>
+										<S.TitleInfoLi>
+											<S.InnerContent>Runtime :</S.InnerContent>
+											{
+												<S.InnerContent2>
+													{data.runtime} minutes
+												</S.InnerContent2>
+											}
+										</S.TitleInfoLi>
+									</S.TitleInfoUl>
+									<S.TitleInfoUl>
+										<S.TitleInfoLi>
+											<S.InnerContent>Introduce : </S.InnerContent>
+											<S.InnerContent2>{data.tagline}</S.InnerContent2>
+										</S.TitleInfoLi>
+									</S.TitleInfoUl>
+								</S.TitleInfoWrapTop>
+							</S.TitleInfoWrap>
+						</S.DetailTopWrap>
+						<S.DetailTopWrap>
+							<S.Content>{data.overview}</S.Content>
+						</S.DetailTopWrap>
+					</S.Contents>
+				</>
 			)}
-			<S.Contents>
-				<S.DetailTopWrap>
-					<S.PostImg src={IMG_BASE_URL + poster_path} />
-					<S.TitleInfoWrap>
-						<S.TitleInfoWrapTop>
-							<S.Title>{title}</S.Title>
-							<S.TitleInfoUl>
-								<S.TitleInfoLi>
-									<S.InnerContent>Move ratings : </S.InnerContent>
-									<S.InnerContent2>⭐{integer}</S.InnerContent2>
-								</S.TitleInfoLi>
-								<S.TitleInfoLi>
-									<S.InnerContent>
-										The cumulative number of spectators :
-									</S.InnerContent>
-									<S.InnerContent2>{popularity} million</S.InnerContent2>
-								</S.TitleInfoLi>
-							</S.TitleInfoUl>
-						</S.TitleInfoWrapTop>
-						<S.TitleInfoWrapTop>
-							<S.TitleInfoUl>
-								<S.TitleInfoLi>
-									<S.InnerContent>Genres : </S.InnerContent>
-									<S.InnerContent2>{genres}</S.InnerContent2>
-								</S.TitleInfoLi>
-								<S.TitleInfoLi>
-									<S.InnerContent>Release date : </S.InnerContent>
-									<S.InnerContent2>{release_date}</S.InnerContent2>
-								</S.TitleInfoLi>
-								<S.TitleInfoLi>
-									<S.InnerContent>Runtime :</S.InnerContent>
-									<S.InnerContent2>{runtime} minutes</S.InnerContent2>
-								</S.TitleInfoLi>
-							</S.TitleInfoUl>
-							<S.TitleInfoUl>
-								<S.TitleInfoLi>
-									<S.InnerContent>Introduce : </S.InnerContent>
-									<S.InnerContent2>{tagline}</S.InnerContent2>
-								</S.TitleInfoLi>
-							</S.TitleInfoUl>
-						</S.TitleInfoWrapTop>
-					</S.TitleInfoWrap>
-				</S.DetailTopWrap>
-				<S.DetailTopWrap>
-					<S.Content>{overview}</S.Content>
-				</S.DetailTopWrap>
-			</S.Contents>
 		</S.DetailWrap>
 	);
 }

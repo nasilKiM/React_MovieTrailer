@@ -1,31 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
+import { IMAGE_URL } from 'Consts/URL';
 
-import { Pagination } from 'swiper';
+import { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
+const IMG_BASE_URL = IMAGE_URL(1280);
 
 const MovieSlider = ({ data }) => {
-	const top4 = data?.data.results.splice(0, 4) || [];
+	const top4 = data?.data.results.slice(0, 4) || [];
 
 	return (
 		<S.Wrapper>
 			<S.SwiperWrapper>
 				<Swiper
 					className="mySwiper"
-					autoplay={{ delay: 1000, disableOnInteraction: false }}
 					slidesPerView={1.0}
 					spaceBetween={0}
 					loop={true}
 					pagination={{
 						clickable: true,
 					}}
-					modules={[Pagination]}
+					modules={[Pagination, Autoplay]}
+					autoplay={{ delay: 1500 }}
 				>
 					{top4.map((src, index) => {
 						return (

@@ -12,7 +12,6 @@ const UpComingList = () => {
 	const [ref, inView] = useInView();
 
 	useEffect(() => {
-		console.log(inView);
 		if (!inView) return;
 		res.fetchNextPage();
 	}, [inView]);

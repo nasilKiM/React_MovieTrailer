@@ -9,8 +9,8 @@ const BasicHeader = () => {
 	return (
 		<S.HeaderWrapper>
 			<S.HeaderLogo onClick={() => navigate('/')}>
-				<img src="/Assets/mascot.png" />
-				<span>MOVIE 찾냥?!</span>
+				<img src="/Assets/mascot_cat_with_text.png" />
+				{/* <span>MOVIE CAT-CHA</span> */}
 			</S.HeaderLogo>
 			<SearchBar />
 			<S.HeaderMenu>
@@ -58,7 +58,7 @@ const HeaderLogo = styled.div`
 
 const HeaderMenu = styled.div`
 	width: 300px;
-	${flexSpaceBetween}
+	${flexSpaceBetween};
 	@media (max-width: 768px) {
 		width: 250px;
 	}

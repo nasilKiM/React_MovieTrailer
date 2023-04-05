@@ -5,7 +5,7 @@ import {
 	useNowPlaying,
 	useTopRated,
 	useUpComing,
-} from 'hooks/queries/now-playing';
+} from 'hooks/queries/get-movie-infos';
 
 const MoviePreviewCard = () => {
 	const now = 'Now Playing';

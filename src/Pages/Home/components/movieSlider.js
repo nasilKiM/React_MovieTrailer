@@ -1,5 +1,5 @@
 import MovieSlider from './Banner/Slider';
-import { usePopular } from 'hooks/queries/now-playing';
+import { usePopular } from 'hooks/queries/get-movie-infos';
 import styled from 'styled-components';
 
 const MoviePreviewSlider = () => {

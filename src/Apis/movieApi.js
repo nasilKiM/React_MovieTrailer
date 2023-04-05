@@ -28,22 +28,22 @@ const MovieApi = {
 		});
 	},
 
-	getSearch(searchKey, pageParam) {
-		return Axios.get(SEARCH_PATH + '/' + MOVIE_PATH, {
-			params: { query: searchKey, page: pageParam },
-		});
-	},
-
-	getDetailInfo(movieId) {
-		return Axios.get(MOVIE_PATH + `/${movieId}`);
-	},
-
 	getPopular() {
 		return Axios.get(MOVIE_PATH + '/popular');
 	},
 
-	getVideos(movieId) {
-		return Axios.get(MOVIE_PATH + `/${movieId}/videos`);
+	getSearch(searchKey, params) {
+		return Axios.get(SEARCH_PATH + '/' + MOVIE_PATH, {
+			params: { query: searchKey, page: params },
+		});
+	},
+
+	getDetailInfo(params) {
+		return Axios.get(MOVIE_PATH + `/${params}`);
+	},
+
+	getVideos(params) {
+		return Axios.get(MOVIE_PATH + `/${params}/videos`);
 	},
 };
 

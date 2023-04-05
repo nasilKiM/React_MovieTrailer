@@ -1,8 +1,9 @@
+import { IMAGE_URL } from 'Consts/URL';
 import React from 'react';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 
-const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w1280/';
+const IMG_BASE_URL = IMAGE_URL(1280);
 
 function MovieCard({ movie }) {
 	const navigate = useNavigate();

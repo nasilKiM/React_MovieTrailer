@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexAlignCenter } from 'Styles/common';
-
+import { IMAGE_URL } from 'Consts/URL';
 function SearchedMovies({ movie }) {
-	const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w300';
+	const IMG_BASE_URL = IMAGE_URL(300);
 	const navigate = useNavigate();
 	const goDetail = () => {
 		navigate(`/detail/${movie.id}`);
@@ -69,7 +69,7 @@ const Wrapper = styled.div`
 
 const Poster = styled.div`
 	width: 230px;
-	height: 105%;
+	height: 300px;
 `;
 
 const Info = styled.div`
