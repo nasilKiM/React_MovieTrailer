@@ -1,9 +1,8 @@
 import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
-
-import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import SearchedMovies from './components/searchedMovies';
 import SearchSkeleton from './components/searchSkeleton';
+import SearchedMovies from './components/searchedMovies';
+import { useLocation } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import { useInfiniteSearch } from 'hooks/queries/get-infinite-movieList';
@@ -17,7 +16,6 @@ function SearchPage() {
 		useInfiniteSearch(word);
 
 	const blank = new Array(3).fill(0);
-	console.log(blank);
 
 	useEffect(() => {
 		if (!inView) {

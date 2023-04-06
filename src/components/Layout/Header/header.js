@@ -10,7 +10,6 @@ const BasicHeader = () => {
 		<S.HeaderWrapper>
 			<S.HeaderLogo onClick={() => navigate('/')}>
 				<img src="/Assets/mascot_cat_with_text.png" />
-				{/* <span>MOVIE CAT-CHA</span> */}
 			</S.HeaderLogo>
 			<SearchBar />
 			<S.HeaderMenu>

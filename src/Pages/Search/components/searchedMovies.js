@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexAlignCenter } from 'Styles/common';
 import { IMAGE_URL } from 'Consts/URL';
+
 function SearchedMovies({ movie }) {
 	const IMG_BASE_URL = IMAGE_URL(300);
 	const navigate = useNavigate();

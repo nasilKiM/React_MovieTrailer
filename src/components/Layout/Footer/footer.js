@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { flexAlignCenter, flexSpaceBetween } from 'Styles/common';
+import { flexAlignCenter } from 'Styles/common';
 
 const BasicFooter = () => {
 	return (
@@ -53,7 +53,6 @@ const Wrapper = styled.div`
 	width: 100%;
 	padding: 80px 100px 40px 100px;
 	background-color: black;
-	/* ${flexSpaceBetween} */
 	${flexAlignCenter}
 	> div {
 		color: white;
