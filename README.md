@@ -1,7 +1,17 @@
 ## 🍿 프로젝트 소개 
+<div align="center">
+    <br/>
+<img width="30%" src="https://github.com/nasilKiM/React_Movie_Trailer_project/assets/117559842/6c60c41a-c751-40a8-aff2-8b516d7c37d3"/>
 
-    < MOVIE CAT-CHA > 은 영화소개 웹사이트입니다.
-    Moive Open API를 활용하여 최신영화 / 인기영화 / 개봉예정 영화의 목록을 조회할 수 있습니다. 또한 궁금한 영화를 검색하고 트레일러 영상을 볼 수 있습니다.
+<br/>
+<br/>
+
+   **MOVIE CAT-CHA** 은 영화소개 웹사이트입니다.<br/>
+Moive Open API를 활용하여 최신영화 / 인기영화 / 개봉예정 영화의 목록을 조회할 수 있습니다. <br>또한 궁금한 영화를 검색하고 트레일러 영상을 볼 수 있습니다.☺️
+<br/>
+<br/>
+</div> 
+<br/>
 
 ## 🚀 배포 주소
 
