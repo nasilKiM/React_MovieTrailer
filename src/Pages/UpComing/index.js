@@ -47,17 +47,27 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-	width: 80%;
+	min-width: 350px;
+	max-width: 1200px;
+	@media (max-width: 700px) {
+		width: 95%;
+		padding: 20px 0;
+	}
+	@media (max-width: 900px) {
+		width: 90%;
+		padding: 20px 0;
+	}
 	margin: 0 auto;
 `;
 
 const Title = styled.div`
 	font-weight: bold;
 	font-size: 30px;
+	padding-bottom: 30px;
 `;
 
 const Card = styled.div`
-	width: 90%;
+	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	flex-basis: 0px;

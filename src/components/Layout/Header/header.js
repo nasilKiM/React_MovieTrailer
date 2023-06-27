@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { flexSpaceBetween } from 'Styles/common';
-import SearchBar from './search';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 const BasicHeader = () => {
 	const navigate = useNavigate();
@@ -9,14 +9,33 @@ const BasicHeader = () => {
 	return (
 		<S.HeaderWrapper>
 			<S.HeaderLogo onClick={() => navigate('/')}>
-				<img src="/Assets/mascot_cat_with_text.png" />
+				<img src="/Assets/catcha.png" />
+				<span></span>
+				<S.GlassBtn
+					onClick={() => {
+						console.log('클릭');
+						navigate('/search');
+					}}
+				>
+					<FontAwesomeIcon
+						icon={faMagnifyingGlass}
+						color="darkgray"
+						cursor="pointer"
+						fontSize="25px"
+					/>
+				</S.GlassBtn>
 			</S.HeaderLogo>
-			<SearchBar />
-			<S.HeaderMenu>
-				<div onClick={() => navigate('/movie/now_playing')}>상영</div>
-				<div onClick={() => navigate('/movie/upcoming')}>예정</div>
-				<div onClick={() => navigate('/movie/top_rated')}>인기</div>
-			</S.HeaderMenu>
+			<S.IconContainer>
+				<div key="now-playing" onClick={() => navigate('/movie/now_playing')}>
+					Now Playing
+				</div>
+				<div key="top-rated" onClick={() => navigate('/movie/top_rated')}>
+					Top Rated
+				</div>
+				<div key="upcoming" onClick={() => navigate('/movie/upcoming')}>
+					Up Coming
+				</div>
+			</S.IconContainer>
 		</S.HeaderWrapper>
 	);
 };
@@ -24,52 +43,82 @@ const BasicHeader = () => {
 export default BasicHeader;
 
 const HeaderWrapper = styled.div`
-	width: 100%;
-	min-width: 768px;
-	padding: 50px 100px;
-	${flexSpaceBetween}
-	color: white;
-	background-color: black;
-	@media (max-width: 768px) {
-		flex-direction: column;
+	min-width: 350px;
+	max-width: 1200px;
+	@media (max-width: 700px) {
+		width: 95%;
+		padding: 20px 0;
 	}
+	@media (max-width: 900px) {
+		width: 90%;
+		padding: 20px 0;
+	}
+	margin: 0 auto;
+	padding: 20px 50px;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 `;
 
 const HeaderLogo = styled.div`
-	height: 50px;
-	width: 300px;
-	${flexSpaceBetween}
+	width: 100%;
+	display: flex;
+	position: relative;
+	justify-content: space-between;
+	padding-bottom: 20px;
+
 	> img {
 		cursor: pointer;
-		width: 150px;
-		@media (max-width: 768px) {
-			width: 100px;
-		}
+		max-width: 150px;
+		width: 80%;
+		flex: 5;
 	}
 	> span {
-		cursor: pointer;
-		font-size: 23px;
-		@media (max-width: 768px) {
-			font-size: 20px;
+		width: 100%;
+		margin-left: 20px;
+	}
+`;
+
+const IconContainer = styled.div`
+	display: flex;
+	font-size: 22px;
+	font-weight: 700;
+	width: 100%;
+	justify-items: center;
+	align-items: center;
+	text-align: center;
+	div {
+		height: 40px;
+		padding-top: 10px;
+		margin-right: 40px;
+		:hover {
+			cursor: pointer;
+			:hover {
+				border-bottom: 3px solid white;
+			}
 		}
 	}
 `;
 
-const HeaderMenu = styled.div`
-	width: 300px;
-	${flexSpaceBetween};
-	@media (max-width: 768px) {
-		width: 250px;
-	}
-	& > div:hover {
-		font-size: 1.1rem;
-		cursor: pointer;
-		transform: scale(1.2);
-	}
+const FontIcons = styled(FontAwesomeIcon)`
+	margin-left: 20px;
+`;
+
+const GlassBtn = styled.button`
+	width: 10%;
+	background-color: transparent;
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all 0.3s ease;
 `;
 
 const S = {
 	HeaderWrapper,
 	HeaderLogo,
-	HeaderMenu,
+	IconContainer,
+	FontIcons,
+	GlassBtn,
 };

@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         @font-face {
 		font-family: 'KCC';
-		src: url('/Assets/Goyang.ttf');
+		src: url('/Assets/Font/Akatab-Regular.ttf');
 	    }
         font-family: 'KCC';
     }

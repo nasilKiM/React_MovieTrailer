@@ -11,7 +11,9 @@ const Preview = ({ data, word, nav, isLoading }) => {
 	return (
 		<S.Wrapper>
 			<S.Bar>
-				<span style={{ color: 'white', fontSize: '20px' }}>{word}</span>
+				<span style={{ color: 'white', fontSize: '23px', fontWeight: '700' }}>
+					| {word}
+				</span>
 				<S.Button onClick={() => navigate(`/movie/${nav}`)}>more &gt;</S.Button>
 			</S.Bar>
 			<S.Cards>
@@ -28,21 +30,15 @@ const Preview = ({ data, word, nav, isLoading }) => {
 export default Preview;
 
 const Wrapper = styled.div`
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
 	background-color: black;
-	@media (max-width: 768px) {
-		width: 80%;
-	}
-	@media (max-width: 1024px) {
-		width: 80%;
-	}
 `;
 
 const Bar = styled.div`
 	width: 100%;
 	${flexSpaceBetween}
-	padding: 5px 20px;
+	padding: 5px 0px;
 	> button {
 		border: none;
 		padding: 10px 15px;

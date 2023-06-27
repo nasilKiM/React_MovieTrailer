@@ -56,23 +56,19 @@ export default MovieSlider;
 const Wrapper = styled.div`
 	width: 100%;
 	background-color: black;
-	padding-top: 50px;
 	& > div {
 		overflow: hidden;
 	}
 `;
 
 const SwiperWrapper = styled.div`
-	width: 80%;
-	margin: 0 auto;
-	padding: 0px 20px;
+	padding-top: 30px;
 `;
 
 const StyledSwiper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 100%;
 `;
 
 const SlideContent = styled.div`
@@ -89,13 +85,13 @@ const SlideContent = styled.div`
 	padding: 180px 80px;
 	color: white;
 	@media (max-width: 768px) {
-		padding: 100px 20px;
+		padding: 100px 30px;
 	}
 `;
 
 const Title = styled.div`
 	width: 100%;
-	font-size: 3rem;
+	font-size: 2.5rem;
 	font-weight: bolder;
 	margin-bottom: 2.5rem;
 	background-color: none;
@@ -117,6 +113,7 @@ const Overview = styled.p`
 	@media (max-width: 768px) {
 		font-size: 0.8rem;
 		line-height: 20px;
+		-webkit-line-clamp: 3;
 	}
 `;
 
