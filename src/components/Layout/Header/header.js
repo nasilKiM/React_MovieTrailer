@@ -10,7 +10,7 @@ const BasicHeader = () => {
 		<S.HeaderWrapper>
 			<S.HeaderLogo onClick={() => navigate('/')}>
 				<img src="/Assets/catcha.png" />
-				<span></span>
+
 				<S.GlassBtn
 					onClick={() => {
 						console.log('클릭');
@@ -106,7 +106,7 @@ const FontIcons = styled(FontAwesomeIcon)`
 	margin-left: 20px;
 `;
 
-const GlassBtn = styled.button`
+const GlassBtn = styled.div`
 	width: 10%;
 	background-color: transparent;
 	border: none;
