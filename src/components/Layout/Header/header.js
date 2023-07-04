@@ -10,14 +10,13 @@ const BasicHeader = () => {
 		<S.HeaderWrapper>
 			<S.HeaderLogo onClick={() => navigate('/')}>
 				<img src="/Assets/catcha.png" />
-
 				<S.GlassBtn
 					onClick={() => {
-						console.log('클릭');
 						navigate('/search');
+						console.log('클릭');
 					}}
 				>
-					<FontAwesomeIcon
+					<FontIcons
 						icon={faMagnifyingGlass}
 						color="darkgray"
 						cursor="pointer"
@@ -45,16 +44,16 @@ export default BasicHeader;
 const HeaderWrapper = styled.div`
 	min-width: 350px;
 	max-width: 1200px;
-	@media (max-width: 700px) {
+	@media (max-width: 800px) {
 		width: 95%;
 		padding: 20px 0;
 	}
-	@media (max-width: 900px) {
+	@media (max-width: 1000px) {
 		width: 90%;
 		padding: 20px 0;
 	}
 	margin: 0 auto;
-	padding: 20px 50px;
+	padding: 20px 0;
 	color: white;
 	display: flex;
 	flex-direction: column;
@@ -67,6 +66,7 @@ const HeaderLogo = styled.div`
 	display: flex;
 	position: relative;
 	justify-content: space-between;
+	align-items: center;
 	padding-bottom: 20px;
 
 	> img {
@@ -103,14 +103,16 @@ const IconContainer = styled.div`
 `;
 
 const FontIcons = styled(FontAwesomeIcon)`
-	margin-left: 20px;
+	background-color: white;
+	padding: 5px 15px;
+	border-radius: 20px;
 `;
 
 const GlassBtn = styled.div`
-	width: 10%;
-	background-color: transparent;
+	width: 8%;
+	display: flex;
+	justify-content: flex-end;
 	border: none;
-	border-radius: 50px;
 	cursor: pointer;
 	transition: all 0.3s ease;
 `;
