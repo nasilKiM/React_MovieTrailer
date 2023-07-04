@@ -1,4 +1,3 @@
-import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
 import styled from 'styled-components';
 import Preview from './Preview/preview';
 import {
@@ -24,7 +23,6 @@ const MoviePreviewCard = () => {
 			{nowPlaying && <Preview data={nowPlaying} word={now} nav={nowTo} />}
 			{topRated && <Preview data={topRated} word={top} nav={topTo} />}
 			{upComing && <Preview data={upComing} word={up} nav={upTo} />}
-			<ScrollUpBtn />
 		</Wrapper>
 	);
 };

@@ -30,9 +30,9 @@ export default SearchBar;
 const Form = styled.form`
 	display: flex;
 	flex-direction: row;
-	width: 50%;
+	width: 80%;
 	border-radius: 30px;
-	height: 5vh;
+	height: 5.5vh;
 	text-align: center;
 	margin-top: 30px;
 	margin-bottom: 10px;
@@ -40,7 +40,7 @@ const Form = styled.form`
 
 const InputBox = styled.input`
 	width: 90%;
-	height: 5vh;
+	height: 5.5vh;
 	border: none;
 	font-size: 1.2rem;
 	border-top-left-radius: 25px;

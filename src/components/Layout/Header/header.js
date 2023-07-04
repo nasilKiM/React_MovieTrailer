@@ -41,6 +41,7 @@ const BasicHeader = () => {
 export default BasicHeader;
 
 const HeaderWrapper = styled.div`
+	width: 90%;
 	min-width: 350px;
 	max-width: 1200px;
 	@media (max-width: 800px) {

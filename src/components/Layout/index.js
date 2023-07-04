@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import BasicFooter from './Footer/footer';
 import BasicHeader from './Header/header';
 import styled from 'styled-components';
+import ScrollUpBtn from './ScrollUp/scrollup';
 
 const LayOut = () => {
 	return (
@@ -10,7 +11,12 @@ const LayOut = () => {
 				<StickyHeader>
 					<BasicHeader />
 				</StickyHeader>
-				<Outlet />
+				<ContentWrapper>
+					<Outlet />
+				</ContentWrapper>
+				<TopBtnContainer>
+					<ScrollUpBtn />
+				</TopBtnContainer>
 				<FooterWrapper>
 					<BasicFooter />
 				</FooterWrapper>
@@ -31,6 +37,17 @@ const StickyHeader = styled.div`
 	border-bottom: 2px solid gray;
 	top: 0;
 	z-index: 100000;
+`;
+
+const ContentWrapper = styled.div`
+	min-height: 100vh;
+	position: relative;
+`;
+
+const TopBtnContainer = styled.div`
+	@media (max-width: 650px) {
+		display: none;
+	}
 `;
 
 const FooterWrapper = styled.div`

@@ -1,5 +1,4 @@
 import MovieCard from 'components/Card/Card';
-import ScrollUpBtn from 'components/Layout/ScrollUp/scrollup';
 import { useInfiniteUpComing } from 'hooks/queries/get-infinite-movieList';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -31,7 +30,6 @@ const UpComingList = () => {
 				</S.Card>
 			</S.Container>
 
-			<ScrollUpBtn />
 			<div ref={ref}></div>
 		</S.Wrapper>
 	);
@@ -47,6 +45,7 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
+	width: 90%;
 	min-width: 350px;
 	max-width: 1200px;
 	@media (max-width: 700px) {
