@@ -54,7 +54,7 @@ const Container = styled.div`
 		width: 95%;
 		padding: 20px 0;
 	}
-	@media (max-width: 900px) {
+	@media (max-width: 1100px) {
 		width: 90%;
 		padding: 20px 0;
 	}

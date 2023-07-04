@@ -8,12 +8,11 @@ const BasicHeader = () => {
 
 	return (
 		<S.HeaderWrapper>
-			<S.HeaderLogo onClick={() => navigate('/')}>
-				<img src="/Assets/catcha.png" />
+			<S.HeaderLogo>
+				<img onClick={() => navigate('/')} src="/Assets/catcha.png" />
 				<S.GlassBtn
 					onClick={() => {
 						navigate('/search');
-						console.log('클릭');
 					}}
 				>
 					<FontIcons
