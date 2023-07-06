@@ -7,10 +7,16 @@ import SearchPage from 'Pages/Search';
 import TopRatedList from 'Pages/TopRated';
 import UpComingList from 'Pages/UpComing';
 import { createBrowserRouter } from 'react-router-dom';
+import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
 
 const router = createBrowserRouter([
 	{
-		element: <LayOut />,
+		element: (
+			<div>
+				<ScrollToTop />,
+				<LayOut />
+			</div>
+		),
 		children: [
 			{ path: '/', element: <HomePage /> },
 
