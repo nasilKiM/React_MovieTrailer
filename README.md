@@ -1,7 +1,7 @@
 ## 🍿 프로젝트 소개 
 <div align="center">
     <br/>
-<img width="30%" src="https://github.com/nasilKiM/React_Movie_Trailer_project/assets/117559842/6c60c41a-c751-40a8-aff2-8b516d7c37d3"/>
+<img width="30%" src="https://github.com/nasilKiM/React_MovieTrailer/assets/117559842/6c408d05-018e-4af5-9cca-9f32cbe7d6e0"/>
 
 <br/>
 <br/>
